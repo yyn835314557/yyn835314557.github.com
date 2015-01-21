@@ -36,9 +36,9 @@ NSLog(@"%@", [array valueForKeyPath:@"uppercaseString"]);
 
 返回每个字符串长度的组成的数组。只要你能想到的成员实例方法都可以这么用。
 
-___
 如果你觉得这个方法就这么点功能，那就错了。还是举具体的例子
-* ###对NSNumber数组快速计算数组求和、平均数、最大值、最小值
+
+- __对NSNumber数组快速计算数组求和、平均数、最大值、最小值__
 {% highlight ruby %}
 	NSArray *array = @[@1, @2, @3, @4, @10];
     
@@ -55,7 +55,7 @@ ___
     NSNumber *min = [array valueForKeyPath:@"@min.floatValue"];
 {% endhighlight %}
 
-* ###剔除重复数据
+* __剔除重复数据__
 {% highlight ruby %}
     NSArray *array = @[@"name", @"w", @"aa", @"jimsa", @"aa"];
     NSLog(@"%@", [array valueForKeyPath:@"@distinctUnionOfObjects.self"]);
@@ -70,7 +70,7 @@ ___
 {% endhighlight %}
 
 
-* ###对NSDictionary数组快速找出相应key对的值
+* __对NSDictionary数组快速找出相应key对的值__
 
 {% highlight ruby %}
  NSArray *array = @[@{@"name" : @"cookeee",
@@ -106,7 +106,7 @@ NSLog(@"%@", [array valueForKeyPath:@"name"]);
 )
 {% endhighlight %}
 
-* ###改变UITextfiedl的placeholder的颜色
+* __改变UITextfiedl的placeholder的颜色__
 {% highlight ruby %}
     [searchField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
 {% endhighlight %}

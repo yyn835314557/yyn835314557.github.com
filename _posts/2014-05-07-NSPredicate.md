@@ -11,7 +11,7 @@ description: NSPredicate数据筛选
 大家在平常的开发过程中多多少少都会接触到数据筛选，那势必会用到`NSPredicate`
 
 这个类和我上一篇博文中提到的[valueForKeyPath](http://bawn.github.io/2014/05/07/valueForKeyPath/)一样很强大。它的使用主要集中在两个方法中:
-<!--more-->
+
 NSArray
 {% highlight ruby %}
 - (NSArray *)filteredArrayUsingPredicate:(NSPredicate *)predicate;
@@ -20,11 +20,12 @@ NSMutableArray
 {% highlight ruby %}
 - (void)filterUsingPredicate:(NSPredicate *)predicate;
 {% endhighlight %}
+
 还有`NSSet`和`NSMutableSet`也可以用这个类筛选。
 下面我就来一一介绍这个类的用法，相信大家看完后会和我一样认为这个类真的很强大。
-##筛选用法
 
-* ####利用成员实例方法
+##筛选用法
+* __利用成员实例方法__
 
 筛选出长度大于3的字符串
 {% highlight ruby %}
@@ -91,7 +92,7 @@ NSPredicate *pre = [NSPredicate predicateWithFormat:@"name == %@", @"西湖"];
 {% endhighlight %}
 筛选出`name`是"西湖"的对象数组。
 
-* ####NSString对象的操作
+* __NSString对象的操作__
 
 前面提到`==`比较运算符可以起到`- (BOOL)isEqualToString:(NSString *)aString;`方法的效果，来判断字符串是否相同。那么字符串中包含某个字符串应该如何判断呢，在NSPredicate中可以用`CONTAINS`(大小写都可以)来表示包含关系。
 {% highlight ruby %}
@@ -108,9 +109,13 @@ NSPredicate *pre = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", @"a
 {% endhighlight %}
 再涉及到一些更复杂的查询语句，比如判断字符串以某个字符串开头或者结尾，通配符的使用。
 ####BEGINSWITH(已某个字符串开头, begins with)
+
 {% highlight ruby %}
-    NSString *targetString = @"h";
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"name BEGINSWITH %@",targetString];
+
+	NSString *targetString = @"h";
+	NSPredicate *pre = [NSPredicate predicateWithFormat:@"name BEGINSWITH 
+	%@",targetString];
+	
 {% endhighlight %}
 
 ####ENDSWITH(已某个字符串结尾, ends with)
@@ -145,7 +150,7 @@ NSPredicate *pre = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", @"a
 NSPredicate *pre = [NSPredicate predicateWithFormat:@"name LIKE[cd] %@", @"?b*"];
 {% endhighlight %}
 
-* ####关系运算,包括了IN、BETWEEN、AND、OR、NOT
+* __关系运算,包括了IN、BETWEEN、AND、OR、NOT__
 
 ####IN(之中)
 {% highlight ruby %}
@@ -209,7 +214,7 @@ NSPredicate *pre = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSD
 {% endhighlight %}
 参数`evaluatedObject`表示数组成员，block必须返回YES或者NO，分别表示匹配还是不匹配。请忽略`bindings`参数，具体作用我也没搞清楚。
 
-* ####多重筛选
+* __多重筛选__
 
 如果需要匹配数个属性的筛选，用`AND`或者`OR`来串联显然有点麻烦，`NSCompoundPredicate`类可以满足我们的需求，它可以将多个`NSPredicate`对象的组合，组合方式可以是`AND`或者`OR`。
 {% highlight ruby %}

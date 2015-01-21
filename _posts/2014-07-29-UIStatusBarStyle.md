@@ -10,7 +10,7 @@ keywords: UIStatusBarStyle
 ---
 在iOS中调整状态栏的样式有两种方式:
 
-###1. 在plist中添加 View controller-based status bar appearance 设置为 YES ,然后通过以下方法设置样式
+####1. 在plist中添加 View controller-based status bar appearance 设置为 YES ,然后通过以下方法设置样式
 {% highlight ruby %}
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleDefault;
@@ -41,7 +41,7 @@ keywords: UIStatusBarStyle
 {% endhighlight %}
 导入`"UINavigationController+StatusBar.h"`然后调用`- (UIStatusBarStyle)preferredStatusBarStyle`即可
 
-###2. 在plist中添加View controller-based status bar appearance设置为NO,然后通过以下方法设置样式
+####2. 在plist中添加View controller-based status bar appearance设置为NO,然后通过以下方法设置样式
 {% highlight ruby %}
 [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 {% endhighlight %}

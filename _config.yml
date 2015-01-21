@@ -8,7 +8,7 @@ redcarpet:
 highlighter: pygments
 logo: false
 paginate: 15
-baseurl: http://bawn.github.io/
+baseurl: /
 domain_name: 'http://bawn.github.io/'
 google_analytics: 'UA-58774091-1'
 
