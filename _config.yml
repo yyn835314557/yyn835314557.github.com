@@ -5,12 +5,12 @@ meta_description: "Your New Jekyll Site, Blogging about stuffs"
 markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+
 highlighter: pygments
 logo: false
 paginate: 15
 baseurl: /
 domain_name: 'http://bawn.github.io/'
-google_analytics: 'UA-58774091-1'
 
 # Details for the RSS feed generator
 url:            'http://bawn.github.io/'
