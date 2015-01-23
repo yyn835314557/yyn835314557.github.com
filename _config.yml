@@ -14,5 +14,5 @@ domain_name: 'http://bawn.github.io/'
 google_analytics: 'UA-XXXXXXXX-X'
 
 # Details for the RSS feed generator
-url:            'http://bawn.github.io/'
+url:            '/rss.xml'
 author:         'Bawn'
