@@ -25,7 +25,7 @@ NSMutableArray
 下面我就来一一介绍这个类的用法，相信大家看完后会和我一样认为这个类真的很强大。
 
 ##筛选用法
-* __利用成员实例方法__
+####利用成员实例方法
 
 筛选出长度大于3的字符串
 {% highlight ruby %}
@@ -48,7 +48,7 @@ NSPredicate *pre = [NSPredicate predicateWithFormat:@"integerValue >= %@", @3];
 NSLog(@"%@", [array filteredArrayUsingPredicate:pre]);
 
 {% endhighlight %}
-如果我不想用任何实例方法,想筛选成员本身应该怎么做呢。这时候就可以用`self`来代替
+如果不想用任何实例方法,想筛选成员本身应该怎么做。这时候就可以用`self`来代替
 {% highlight ruby %}
 NSPredicate *pre = [NSPredicate predicateWithFormat:@"self CONTAINS %@", @3];
 {% endhighlight %}
@@ -92,7 +92,7 @@ NSPredicate *pre = [NSPredicate predicateWithFormat:@"name == %@", @"西湖"];
 {% endhighlight %}
 筛选出`name`是"西湖"的对象数组。
 
-* __NSString对象的操作__
+#### NSString对象的操作
 
 前面提到`==`比较运算符可以起到`- (BOOL)isEqualToString:(NSString *)aString;`方法的效果，来判断字符串是否相同。那么字符串中包含某个字符串应该如何判断呢，在NSPredicate中可以用`CONTAINS`(大小写都可以)来表示包含关系。
 {% highlight ruby %}
@@ -108,7 +108,8 @@ NSPredicate *pre = [NSPredicate predicateWithFormat:@"name == %@", @"西湖"];
 NSPredicate *pre = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", @"abc"];
 {% endhighlight %}
 再涉及到一些更复杂的查询语句，比如判断字符串以某个字符串开头或者结尾，通配符的使用。
-####BEGINSWITH(已某个字符串开头, begins with)
+
+**BEGINSWITH(已某个字符串开头, begins with)**
 
 {% highlight ruby %}
 
@@ -118,13 +119,13 @@ NSPredicate *pre = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", @"a
 	
 {% endhighlight %}
 
-####ENDSWITH(已某个字符串结尾, ends with)
+**ENDSWITH(已某个字符串结尾, ends with)**
 {% highlight ruby %}
     NSString *targetString = @"ing";
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"name ENDSWITH %@",targetString];
 {% endhighlight %}
 
-####通配符 LIKE
+**通配符 LIKE**
 >*代表一个或者多个或者是空
 ?代表一个字符
 {% highlight ruby %}
@@ -150,15 +151,16 @@ NSPredicate *pre = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", @"a
 NSPredicate *pre = [NSPredicate predicateWithFormat:@"name LIKE[cd] %@", @"?b*"];
 {% endhighlight %}
 
-* __关系运算,包括了IN、BETWEEN、AND、OR、NOT__
+####关系运算,包括了IN、BETWEEN、AND、OR、NOT
 
-####IN(之中)
+**IN(之中)**
 {% highlight ruby %}
 NSPredicate *pre = [NSPredicate predicateWithFormat:@"code IN %@", @[@1, @3]];
 {% endhighlight %}
 判断code是否@1或者是@2，也就是是否在数组中。
 
-####OR(或,可以用||代替)
+**OR(或,可以用||代替)**
+
 `OR`可以用来代替`IN`达到同样的效果，但是`OR`更灵活。
 {% highlight ruby %}
 NSPredicate *pre = [NSPredicate predicateWithFormat:@"code == %@ OR code == %@ ", @1, @3];
@@ -168,7 +170,8 @@ NSPredicate *pre = [NSPredicate predicateWithFormat:@"code == %@ OR code == %@ "
 NSPredicate *pred = [NSPredicate predicateWithFormat:@"code == %@ OR name == %@ ", @1, @"asb"];
 {% endhighlight %}
 
-####BETWEEN(之间)
+**BETWEEN(之间)**
+
 通常用于判断NSNumber对象
 {% highlight ruby %}
 NSPredicate *pred = [NSPredicate predicateWithFormat:@"code BETWEEN {1, 3}"];
@@ -176,13 +179,15 @@ NSPredicate *pred = [NSPredicate predicateWithFormat:@"code BETWEEN {1, 3}"];
 判断code是否>=1且<=3
 
 
-####AND(且,可以用&&代替)
+**AND(且,可以用&&代替)**
+
 {% highlight ruby %}
 NSPredicate *pred = [NSPredicate predicateWithFormat:@"code >= %@ AND code <=%@", @1, @3];
 {% endhighlight %}
 
 
-####NOT(非,可以用!代替)
+**NOT(非,可以用!代替)**
+
 `NOT`最常见的用法就是从一个数组中剔除另外一个数组的数据，可能有点绕，举个例子就很明朗了。
 {% highlight ruby %}
 	NSArray *arrayFilter = @[@"abc1", @"abc2"];
@@ -214,7 +219,7 @@ NSPredicate *pre = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSD
 {% endhighlight %}
 参数`evaluatedObject`表示数组成员，block必须返回YES或者NO，分别表示匹配还是不匹配。请忽略`bindings`参数，具体作用我也没搞清楚。
 
-* __多重筛选__
+####多重筛选
 
 如果需要匹配数个属性的筛选，用`AND`或者`OR`来串联显然有点麻烦，`NSCompoundPredicate`类可以满足我们的需求，它可以将多个`NSPredicate`对象的组合，组合方式可以是`AND`或者`OR`。
 {% highlight ruby %}

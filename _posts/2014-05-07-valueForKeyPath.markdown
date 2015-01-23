@@ -40,25 +40,24 @@ NSLog(@"%@", [array valueForKeyPath:@"uppercaseString"]);
 
 - __对NSNumber数组快速计算数组求和、平均数、最大值、最小值__
 {% highlight ruby %}
-	NSArray *array = @[@1, @2, @3, @4, @10];
-    
-    NSNumber *sum = [array valueForKeyPath:@"@sum.self"];
-    NSNumber *avg = [array valueForKeyPath:@"@avg.self"];
-    NSNumber *max = [array valueForKeyPath:@"@max.self"];
-    NSNumber *min = [array valueForKeyPath:@"@min.self"];
+NSArray *array = @[@1, @2, @3, @4, @10];
+NSNumber *sum = [array valueForKeyPath:@"@sum.self"];
+NSNumber *avg = [array valueForKeyPath:@"@avg.self"];
+NSNumber *max = [array valueForKeyPath:@"@max.self"];
+NSNumber *min = [array valueForKeyPath:@"@min.self"];
 {% endhighlight %}
 或者指定输出类型
 {% highlight ruby %}
-	NSNumber *sum = [array valueForKeyPath:@"@sum.floatValue"];
-    NSNumber *avg = [array valueForKeyPath:@"@avg.floatValue"];
-    NSNumber *max = [array valueForKeyPath:@"@max.floatValue"];
-    NSNumber *min = [array valueForKeyPath:@"@min.floatValue"];
+NSNumber *sum = [array valueForKeyPath:@"@sum.floatValue"];
+NSNumber *avg = [array valueForKeyPath:@"@avg.floatValue"];
+NSNumber *max = [array valueForKeyPath:@"@max.floatValue"];
+NSNumber *min = [array valueForKeyPath:@"@min.floatValue"];
 {% endhighlight %}
 
 * __剔除重复数据__
 {% highlight ruby %}
-    NSArray *array = @[@"name", @"w", @"aa", @"jimsa", @"aa"];
-    NSLog(@"%@", [array valueForKeyPath:@"@distinctUnionOfObjects.self"]);
+NSArray *array = @[@"name", @"w", @"aa", @"jimsa", @"aa"];
+NSLog(@"%@", [array valueForKeyPath:@"@distinctUnionOfObjects.self"]);
 {% endhighlight %}
 {% highlight ruby %}
 (
@@ -77,7 +76,7 @@ NSLog(@"%@", [array valueForKeyPath:@"uppercaseString"]);
                          @"code" : @1},
                        @{@"name" : @"sswwre",
                          @"code" : @2}];
-    NSLog(@"%@", [array valueForKeyPath:@"name"]);
+NSLog(@"%@", [array valueForKeyPath:@"name"]);
 NSLog(@"%@", [array valueForKeyPath:@"name"]);
 {% endhighlight %}
 直接得到字典中`name`key对应的值组成的数组，显然比循环取值再加入到新数组中方便快捷
@@ -91,12 +90,12 @@ NSLog(@"%@", [array valueForKeyPath:@"name"]);
 {% endhighlight %}
 甚至嵌套使用，先剔除`name`对应值的重复数据再取值
 {% highlight ruby %}
- NSArray *array = @[@{@"name" : @"cookeee",@"code" : @1},
+NSArray *array = @[@{@"name" : @"cookeee",@"code" : @1},
                            @{@"name": @"jim",@"code" : @2},
                            @{@"name": @"jim",@"code" : @1},
                            @{@"name": @"jbos",@"code" : @1}];
 
-    NSLog(@"%@", [array valueForKeyPath:@"@distinctUnionOfObjects.name"]);
+NSLog(@"%@", [array valueForKeyPath:@"@distinctUnionOfObjects.name"]);
 {% endhighlight %}
 {% highlight ruby %}
 (

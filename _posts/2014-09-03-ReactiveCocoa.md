@@ -35,10 +35,7 @@ description: 关于ReactiveCocoa一些使用总结
 
 {% highlight ruby %}
 		@weakify(self);
-       RACSignal *timeSignal = [[[[[RACSignal interval:1.0f
-                                        onScheduler:[RACScheduler mainThreadScheduler]]
-                                take:numberLimit] startWith:@(1)]
-                              map:^id(NSDate *date) {
+       RACSignal *timeSignal = [[[[[RACSignal interval:1.0f onScheduler:[RACScheduler mainThreadScheduler]] take:numberLimit] startWith:@(1)] map:^id(NSDate *date) {
         @strongify(self);
         if (number == 0) {
             [self.timeButton setTitle:@"重新发送" forState:UIControlStateNormal];

@@ -22,10 +22,8 @@ description: 关联对象
                              message:nil
                    cancelButtonTitle:@"取消"
                    otherButtonTitles:@[@"退回", @"接收"]
-                            onCancel:^{
-                       
+                            onCancel:^{  
             NSLog(@"取消按钮点击");
-                       
         }onOther:^(NSInteger index) {
             if (index == 0) {
                 NSLog(@"其他第一个按钮点击");
@@ -83,7 +81,7 @@ static char kVCActionHandleAlertOtherBlockKey;
      UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:title
                                                        message:message
                                                       delegate:self
-                                             cancelButtonTitle:cancelButtonTitle
+                      	                   cancelButtonTitle:cancelButtonTitle
                                              otherButtonTitles:nil];
     for(NSString *buttonTitle in otherButtonTitles){
         [alertView addButtonWithTitle:buttonTitle];
@@ -129,4 +127,4 @@ static char kVCActionHandleAlertOtherBlockKey;
 
 需要注意的是这里关联的规则最好用`OBJC_ASSOCIATION_COPY_NONATOMIC`，以便让ARC来管理这个`block`。后面的协议方法也就是把`block`从`self`中取出来执行。
 
-当然还有`UIActionSheet`甚至`UIImagePickerController`也可以这样来扩展，
+当然还有`UIActionSheet`甚至`UIImagePickerController`也可以这样来扩展
