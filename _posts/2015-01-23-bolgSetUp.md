@@ -109,6 +109,15 @@ git push
 完成之后应该就能看到新的文章已经在你的个人博客主页上了。
 
 
+####替换谷歌字体库
 
+网站打开慢？刚搭完博客我也在郁闷这个事，然后通过google的网站分析发现是JS加载google的字体库造成找到/_layouts/default.html，把下面代码中的Google免费字体库的域名`googleapis`替换成[360](http://libs.useso.com]/)提供的代理`useso`的，
+
+{% highlight ruby %}
+
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+// 替换后
+<link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+{% endhighlight %}
 
 

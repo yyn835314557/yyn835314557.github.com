@@ -10,7 +10,9 @@ keywords: MagicalRecord
 description: MagicalRecord配合Mantle
 ---
 
-在开始之前，我们先创建一个名为MemberManaged的实体![image](/images/entity.png)
+在开始之前，我们先创建一个名为MemberManaged的实体
+
+![image](/images/entity.png)
 
 >MemberManaged.h
 
