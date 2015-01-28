@@ -21,7 +21,7 @@ description: Jekyll博客搭建
 
 放弃Octopress和Hexo原因是这两个平台没有令我满意的主题-->
 把博客平台换成[Jekyll](http://jekyllcn.com/)，主要原因是这款令我满意的主题，而且Jekyll搭建和操作也非常简单。下面我来介绍在Mac OS X环境下如何通过Jekyll搭建自己的个人博客。
-<!---->
+
 ####搭建环境
 
 首先安装必要工具
