@@ -24,10 +24,11 @@ NSMutableArray
 还有`NSSet`和`NSMutableSet`也可以用这个类筛选。
 下面我就来一一介绍这个类的用法，相信大家看完后会和我一样认为这个类真的很强大。
 
-##筛选用法
-####利用成员实例方法
+>##筛选用法
 
-筛选出长度大于3的字符串
+###利用成员实例方法
+
+* 筛选出长度大于3的字符串
 {% highlight ruby %}
 NSArray *array = @[@"jim", @"cook", @"jobs", @"sdevm"];
 NSPredicate *pre = [NSPredicate predicateWithFormat:@"length > 3"];
@@ -41,7 +42,9 @@ NSLog(@"%@", [array filteredArrayUsingPredicate:pre]);
     sdevm
 )
 {% endhighlight %}
-`lenght`就是对数组成员执行[xxxx lenght]然后判断返回的NSUInteger值是否大于3。扩展到NSString其他方法比如`integerValue`
+`lenght`就是对数组成员执行[xxxx lenght]然后判断返回的NSUInteger值是否大于3。
+
+* NSString其他方法比如`integerValue`
 {% highlight ruby %}
 NSArray *array = @[@"2", @"3", @"4", @"5"];
 NSPredicate *pre = [NSPredicate predicateWithFormat:@"integerValue >= %@", @3];
@@ -50,41 +53,40 @@ NSLog(@"%@", [array filteredArrayUsingPredicate:pre]);
 {% endhighlight %}
 如果不想用任何实例方法,想筛选成员本身应该怎么做。这时候就可以用`self`来代替
 {% highlight ruby %}
-NSPredicate *pre = [NSPredicate predicateWithFormat:@"self CONTAINS %@", @3];
+NSPredicate *pre = [NSPredicate predicateWithFormat:@"self CONTAINS %@", @"3"];
 {% endhighlight %}
 `CONTAINS`用法后面会讲到
 
 
-__再扩展到模型__
->Test.h
+###扩展到模型
 
 {% highlight ruby %}
 @interface Test : NSObject
-
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSNumber *code;
-
 @end
 
 {% endhighlight %}
 {% highlight ruby %}
-	Test *test1 = [[Test alloc]init];
-    test1.name = @"西湖";
-    test1.code = @1;
-        
-    Test *test2 = [[Test alloc]init];
-    test2.name = @"西溪湿地";
-    test2.code = @2;
-        
-    Test *test3 = [[Test alloc]init];
-    test3.name = @"灵隐寺";
-    test3.code = @3;
-       
-    NSArray *array = @[test1, test2, test3];
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"code >= %@", @2];
-    NSLog(@"%@", [array filteredArrayUsingPredicate:pre]);
+Test *test1 = [[Test alloc]init];
+test1.name = @"西湖";
+test1.code = @1;
+
+Test *test2 = [[Test alloc]init];
+test2.name = @"西溪湿地";
+test2.code = @2;
+
+Test *test3 = [[Test alloc]init];
+test3.name = @"灵隐寺";
+test3.code = @3;
+
+NSArray *array = @[test1, test2, test3];
 {% endhighlight %}
-筛选出数组成员`[test code]`方法(code属性的get方法)返回值>=2的成员。这里的比较运算符同样也可以使用`==`、`!=`、`<=`、`<`。
+筛选出数组成员`[test code]`方法(code属性的get方法)返回值 >= 2的成员。这里的比较运算符同样也可以使用`==`、`!=`、`<=`、`<`。
+{% highlight ruby %}
+NSPredicate *pre = [NSPredicate predicateWithFormat:@"code >= %@", @2];
+NSLog(@"%@", [array filteredArrayUsingPredicate:pre]);
+{% endhighlight %}
 
 其实`==`不仅可以用来比较NSNumber对象，还可以用来判断NSString对象是否相同。
 {% highlight ruby %}
@@ -113,40 +115,41 @@ NSPredicate *pre = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", @"a
 
 {% highlight ruby %}
 
-	NSString *targetString = @"h";
-	NSPredicate *pre = [NSPredicate predicateWithFormat:@"name BEGINSWITH 
-	%@",targetString];
+NSString *targetString = @"h";
+NSPredicate *pre = [NSPredicate predicateWithFormat:@"name BEGINSWITH 
+%@",targetString];
 	
 {% endhighlight %}
 
 **ENDSWITH(已某个字符串结尾, ends with)**
 {% highlight ruby %}
-    NSString *targetString = @"ing";
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"name ENDSWITH %@",targetString];
+NSString *targetString = @"ing";
+NSPredicate *pre = [NSPredicate predicateWithFormat:@"name ENDSWITH %@",targetString];
 {% endhighlight %}
 
 **通配符 LIKE**
->*代表一个或者多个或者是空
-?代表一个字符
+>`*` 代表一个或者多个或者是空，`?` 代表一个字符
 {% highlight ruby %}
-	Test *test1 = [[Test alloc]init];
-    test1.name = @"absr";
-    test1.code = @1;
-        
-    Test *test2 = [[Test alloc]init];
-    test2.name = @"asb";
-    test2.code = @2;
-        
-    Test *test3 = [[Test alloc]init];
-    test3.name = @"raskj";
-    test3.code = @3;
-        
-    NSArray *array = @[test1, test2, test3];
-        
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"name LIKE %@", @"?b*"];
-    NSLog(@"%@", [array filteredArrayUsingPredicate:pre]);
+Test *test1 = [[Test alloc]init];
+test1.name = @"absr";
+test1.code = @1;
+
+Test *test2 = [[Test alloc]init];
+test2.name = @"asb";
+test2.code = @2;
+
+Test *test3 = [[Test alloc]init];
+test3.name = @"raskj";
+test3.code = @3;
+
+NSArray *array = @[test1, test2, test3];
 {% endhighlight %}
-结果是只有test1符合，`like`也可以接受`[cd]`
+
+{% highlight ruby %}
+NSPredicate *pre = [NSPredicate predicateWithFormat:@"name LIKE %@", @"?b*"];
+NSLog(@"%@", [array filteredArrayUsingPredicate:pre]);
+{% endhighlight %}
+筛选结果：只有test1符合。同时`like`也可以接受`[cd]`，比如：
 {% highlight ruby %}
 NSPredicate *pre = [NSPredicate predicateWithFormat:@"name LIKE[cd] %@", @"?b*"];
 {% endhighlight %}
@@ -190,10 +193,10 @@ NSPredicate *pred = [NSPredicate predicateWithFormat:@"code >= %@ AND code <=%@"
 
 `NOT`最常见的用法就是从一个数组中剔除另外一个数组的数据，可能有点绕，举个例子就很明朗了。
 {% highlight ruby %}
-	NSArray *arrayFilter = @[@"abc1", @"abc2"];
-    NSArray *arrayContent = @[@"a1", @"abc1", @"abc4", @"abc2"];
-    NSPredicate *thePredicate = [NSPredicate predicateWithFormat:@"NOT (SELF in %@)", arrayFilter];
-    NSLog(@"%@",[arrayContent filteredArrayUsingPredicate:thePredicate]);
+NSArray *arrayFilter = @[@"abc1", @"abc2"];
+NSArray *arrayContent = @[@"a1", @"abc1", @"abc4", @"abc2"];
+NSPredicate *thePredicate = [NSPredicate predicateWithFormat:@"NOT (SELF in %@)", arrayFilter];
+NSLog(@"%@",[arrayContent filteredArrayUsingPredicate:thePredicate]);
 {% endhighlight %}
 打印
 {% highlight ruby %}
@@ -205,12 +208,12 @@ NSPredicate *pred = [NSPredicate predicateWithFormat:@"code >= %@ AND code <=%@"
 比起循环比较再加到新数组中，简单的不止一两点。
 
 
-前面提到的都是用`+ (NSPredicate *)predicateWithFormat:(NSString *)predicateFormat, ...;`方法创建，还有另一种常用的方法：`+ (NSPredicate*)predicateWithBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block`，用Block形式创建
+前面提到的都是用 `+ (NSPredicate *)predicateWithFormat:(NSString *)predicateFormat, ...;` 方法创建，还有另一种常用的方法：`+ (NSPredicate*)predicateWithBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block`，用Block形式创建
 {% highlight ruby %}
 NSPredicate *pre = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-	Test *test = (Test *)evaluatedObject;
+    Test *test = (Test *)evaluatedObject;
     if (test.code.integerValue > 2) {
-    	return YES;
+        return YES;
     }
     else{
         return NO;
@@ -219,13 +222,12 @@ NSPredicate *pre = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSD
 {% endhighlight %}
 参数`evaluatedObject`表示数组成员，block必须返回YES或者NO，分别表示匹配还是不匹配。请忽略`bindings`参数，具体作用我也没搞清楚。
 
-####多重筛选
+###多重筛选
 
 如果需要匹配数个属性的筛选，用`AND`或者`OR`来串联显然有点麻烦，`NSCompoundPredicate`类可以满足我们的需求，它可以将多个`NSPredicate`对象的组合，组合方式可以是`AND`或者`OR`。
 {% highlight ruby %}
 	NSPredicate *pre1 = [NSPredicate predicateWithFormat:@"code >= %@", @3];
     NSPredicate *pre2 = [NSPredicate predicateWithFormat:@"code <= %@", @2];
-        
     //以AND形式组合
     NSPredicate *pre = [NSCompoundPredicate andPredicateWithSubpredicates:@[pre1,pre2]];
     //以OR形式组合
@@ -233,25 +235,27 @@ NSPredicate *pre = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSD
 {% endhighlight %}
 
 
+___
+
 ##匹配用法
 
 其实NSPredicate不仅可以用于筛选，还可以用来判断匹配直接返回是否符合，主要方法是`- (BOOL)evaluateWithObject:(id)object;`，用法：
 {% highlight ruby %}
-	Test *test1 = [[Test alloc]init];
-    test1.name = @"absr";
-    test1.code = @1;
-        
-    NSPredicate *pres = [NSPredicate predicateWithFormat:@"code == %@", @2];
-    BOOL match = [pres evaluateWithObject:test1];
+Test *test1 = [[Test alloc]init];
+test1.name = @"absr";
+test1.code = @1;
+
+NSPredicate *pres = [NSPredicate predicateWithFormat:@"code == %@", @2];
+BOOL match = [pres evaluateWithObject:test1];
 {% endhighlight %}
 当然最常用的还是配合配合正则表达式，列举几个常用的正则
 
 是否以a开头以e结尾
 {% highlight ruby %}
-    NSString *string=@"assdbfe";
-    NSString *targetString=@"^a.+e$";
-    NSPredicate *pres = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", targetString];
-    BOOL match = [pres evaluateWithObject:string];
+NSString *string=@"assdbfe";
+NSString *targetString=@"^a.+e$";
+NSPredicate *pres = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", targetString];
+BOOL match = [pres evaluateWithObject:string];
 
 {% endhighlight %}
 是否是邮箱
@@ -306,20 +310,20 @@ ____
 
 在某些情况下，类似于上面例子中的`code`字符串不是很明确，创建的时候就会这样使用
 {% highlight ruby %}
-	Test *test1 = [[Test alloc]init];
+    Test *test1 = [[Test alloc]init];
     test1.name = @"absr";
     test1.code = @1;
-        
+
     Test *test2 = [[Test alloc]init];
     test2.name = @"asb";
     test2.code = @2;
-        
+
     Test *test3 = [[Test alloc]init];
     test3.name = @"raskj";
     test3.code = @3;
-        
+
     NSArray *array = @[test1, test2, test3];
-        
+
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%@ == %@", @"code", @2];
     NSLog(@"%@", [array filteredArrayUsingPredicate:pre]);
 {% endhighlight %}

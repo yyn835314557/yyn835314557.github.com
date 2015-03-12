@@ -54,6 +54,9 @@ NSNumber *max = [array valueForKeyPath:@"@max.floatValue"];
 NSNumber *min = [array valueForKeyPath:@"@min.floatValue"];
 {% endhighlight %}
 
+
+
+
 * __剔除重复数据__
 {% highlight ruby %}
 NSArray *array = @[@"name", @"w", @"aa", @"jimsa", @"aa"];
@@ -72,12 +75,12 @@ NSLog(@"%@", [array valueForKeyPath:@"@distinctUnionOfObjects.self"]);
 * __对NSDictionary数组快速找出相应key对的值__
 
 {% highlight ruby %}
- NSArray *array = @[@{@"name" : @"cookeee",
+    NSArray *array = @[@{@"name" : @"cookeee",
                          @"code" : @1},
                        @{@"name" : @"sswwre",
                          @"code" : @2}];
-NSLog(@"%@", [array valueForKeyPath:@"name"]);
-NSLog(@"%@", [array valueForKeyPath:@"name"]);
+    NSLog(@"%@", [array valueForKeyPath:@"name"]);
+    NSLog(@"%@", [array valueForKeyPath:@"name"]);
 {% endhighlight %}
 直接得到字典中`name`key对应的值组成的数组，显然比循环取值再加入到新数组中方便快捷
 {% highlight ruby %}
@@ -88,12 +91,15 @@ NSLog(@"%@", [array valueForKeyPath:@"name"]);
     jbos
 )
 {% endhighlight %}
-甚至嵌套使用，先剔除`name`对应值的重复数据再取值
+
+* **嵌套使用**
+
+对`name`字段对应的值剔除重复数据再取值
 {% highlight ruby %}
 NSArray *array = @[@{@"name" : @"cookeee",@"code" : @1},
-                           @{@"name": @"jim",@"code" : @2},
-                           @{@"name": @"jim",@"code" : @1},
-                           @{@"name": @"jbos",@"code" : @1}];
+                    @{@"name": @"jim",@"code" : @2},
+                    @{@"name": @"jim",@"code" : @1},
+                    @{@"name": @"jbos",@"code" : @1}];
 
 NSLog(@"%@", [array valueForKeyPath:@"@distinctUnionOfObjects.name"]);
 {% endhighlight %}
@@ -103,6 +109,16 @@ NSLog(@"%@", [array valueForKeyPath:@"@distinctUnionOfObjects.name"]);
     jim,
     jbos
 )
+{% endhighlight %}
+对`number`字段对应的值取最大值
+{% highlight ruby %}
+NSArray *array = @[@{@"number" : @1, @"title" : @""},
+                   @{@"number" : @2, @"title" : @""},
+                   @{@"number" : @20, @"title" : @""},
+                   @{@"number" : @4, @"title" : @""},
+                   @{@"number" : @5, @"title" : @""}
+];
+NSNumber *max = [array valueForKeyPath:@"@max.number"];
 {% endhighlight %}
 
 * __改变UITextfiedl的placeholder的颜色__
