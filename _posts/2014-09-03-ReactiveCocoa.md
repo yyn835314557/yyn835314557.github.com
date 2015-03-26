@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ReactiveCocoa"
-date: 2014-09-03
+date: 2015-03-26
 comments: true
 categories: iOS
 tags: [ReactiveCocoa]
@@ -209,7 +209,69 @@ self.model.dataSource = @[model1];
 
 以上例子可以在[github](https://github.com/bawn/RAC-Demo)下载
 
-##待续..........
+____
+
+##代替dispatch_group功能
+
+**传统的`dispatch_group`创建使用方式**
+
+{% highlight ruby %}
+
+// 创建一个dispatch_group对象
+static dispatch_group_t home_request_operation_completion_group() {
+    static dispatch_group_t http_request_operation_completion_group;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        http_request_operation_completion_group = dispatch_group_create();
+    });
+    return http_request_operation_completion_group;
+}
+
+// .......
+
+- (void)viewDidLoad{
+    [self updateData];
+}
+
+- (void)updateProfit{
+
+// 加入一个异步方法
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_group_async(home_request_operation_completion_group(), queue, ^{
+    dispatch_group_enter(home_request_operation_completion_group());
+        [self update1];
+    });
+// 加入另一个异步方法
+    dispatch_group_async(home_request_operation_completion_group(), queue, ^{
+    dispatch_group_enter(home_request_operation_completion_group());
+        [self update2];
+    });
+// 当两个异步方法都执行完的时候调用停止下拉刷新
+    dispatch_group_notify(home_request_operation_completion_group(), dispatch_get_main_queue(), ^{
+        if ([self.tableView isHeaderRefreshing]) {
+            [self.tableView headerEndRefreshing];
+        });
+};
+
+{% endhighlight %}
+
+**RAC代替dispatch_group**
+
+{% highlight ruby %}
+- (void)updateProfit{
+    [[RACSignal zip:@[[self update1], [self update2]]] subscribeNext:^(RACTuple *x) {
+        @strongify(self);
+        if ([self.tableView isHeaderRefreshing]) {
+            [self.tableView headerEndRefreshing];
+        });
+    }];
+{% endhighlight %}
+
+当然这里需要改写`[self update1]`和`[self update2]`返回RACSignal对象。
+
+`+ (instancetype)zip:(id<NSFastEnumeration>)streams`作用当绑定的多个signal都sendNext后再subscribeNext。
+
+另外关于`combineLatest`和`zip`区别可以看我的[笔记](https://www.evernote.com/l/AJMEYyw-2oxEQ7Pv0uxJ4faAgCyhXgjRnzs)
 
 ____
 ##RAC相关博客
