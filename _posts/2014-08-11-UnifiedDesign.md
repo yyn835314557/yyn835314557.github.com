@@ -12,10 +12,10 @@ keywords: 统一设计
 __本文转载自[Esoft Mobile](http://esoftmobile.com/2014/01/14/build-ios6-ios7-apps/)，略有修改__
 
 前段时间，苹果在它的开发者网站上放出了iOS系统安装比例，其中iOS7占到78%，iOS6占18%，剩余4%是iOS6以下版本。我们也借此机会将手上正在进行的两个项目都升级到支持iOS6及以上版本呢，有一种幸福来的太突然的赶脚，要知道在此之前我们都还在支持iOS4.3版本。
-![比例](/images/ios-rate.png)
+![比例](/images/UnifiedDesign/ios-rate.png)
 
 根据苹果另外一条[消息](https://developer.apple.com/news/?id=12172013a)，我们需要按照iOS7风格设计我们的Apps，至于iOS6系统，也没有必要为这部分用户做两份设计，尽量向iOS7风格靠齐吧。由于iOS7简约的风格，基本上通过设置组件的颜色就能够满足大部分色设计需求，所以本文的主要内容会讲iOS6实现iOS7扁平化的一些技巧。
-![ios7-update-announcement](/images/ios7-update-announcement.png)
+![ios7-update-announcement](/images/UnifiedDesign/ios7-update-announcement.png)
 
 ##iOS6扁平化
 _____
@@ -106,7 +106,7 @@ iOS7中导航栏上的按钮已经不被圆角按钮包围了，而iOS6中不管
 
 
 可以看看完成上面三步达到的效果：
-![ios 6](/images/ios6-navigationbar.png) ![ios 7](/images/ios7-navigationbar.png)
+![ios 6](/images/UnifiedDesign/ios6-navigationbar.png) ![ios 7](/images/UnifiedDesign/ios7-navigationbar.png)
 
 有人会说，你别高兴得太早，那导航栏的返回按钮怎么办？能去掉iOS6上带剪头和圆角的border吗？这个都搞不定，我还敢在这儿发文章显摆吗？看码：
 
@@ -124,7 +124,7 @@ iOS7中导航栏上的按钮已经不被圆角按钮包围了，而iOS6中不管
 
 第一段代码给返回按钮设置一个背景图片，当然这个背景图片就做成和iOS7返回按钮那个剪头一样就好了， Back 可能文字和剪头靠的太紧，没关系，通过 `setBackButtonTitlePositionAdjustment:` 设置一下文字的偏移就好了，最后因为iOS6中 BarButtonItem 中的文字比 iOS7 小，所以统一设置一下吧。
 
-![ios 6](/images/ios6-back-item.png) ![ios 7](/images/ios7-back-item.png)
+![ios 6](/images/UnifiedDesign/ios6-back-item.png) ![ios 7](/images/UnifiedDesign/ios7-back-item.png)
 
 
 ##UITabBar
@@ -189,7 +189,7 @@ iOS6中 Tab 选中后，图片默认会加上高光效果，title默认为白色
                UITextAttributeTextColor: tabBarTintColor }
     forState:UIControlStateSelected];
 {% endhighlight %}
-![ios 6](/images/ios6-tabbar.png) ![ios 7](/images/ios7-tabbar.png)
+![ios 6](/images/UnifiedDesign/ios6-tabbar.png) ![ios 7](/images/UnifiedDesign/ios7-tabbar.png)
 
 
 ##UIToolbar
