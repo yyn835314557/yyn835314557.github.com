@@ -5,8 +5,8 @@ date: 2015-01-23
 comments: true
 categories: iOS
 tags: [Jekyll]
-keywords: Jekyll blog
-description: Jekyll博客搭建
+keywords: Jekyll blog 迁移到gitcafe
+description: Jekyll博客搭建, 迁移到gitcafe
 ---
 
 
@@ -119,5 +119,30 @@ git push
 // 替换后
 <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
 {% endhighlight %}
+
+____
+
+
+##迁移到gitcafe
+
+1. 在gitcafe中创建一个用户名的仓库，这个和github上一样
+2. 在本地博客目录也就是本地仓库中创建一个名为gitcafe-pages的分支：`git checkout -b gitcafe-pages`，注意这时候已经切换到`gitcafe-pages`分支上了
+3. 添加gitcafe的远端仓库地址
+{% highlight ruby %}
+// HTTPS
+git remote add gitcafe https://gitcafe.com/bawn/bawn.git
+// SSH
+git remote add gitcafe git@gitcafe.com:bawn/bawn.git
+{% endhighlight %}
+4.提交修改
+{% highlight ruby %}
+git push gitcafe gitcafe-pages
+{% endhighlight %}
+5.切换到master提交到github
+
+
+
+
+
 
 

@@ -2,6 +2,7 @@
 layout: post
 title: "杂记"
 date: 2014-11-24
+update: 2015-04-7
 comments: true
 categories: iOS
 tags: [iOS]
@@ -12,7 +13,7 @@ description: iOS杂记
 
 很久没更新博客了，一方面是.......另一方面是项目忙
 
-回归正题，将近两年的开发过程中，我都会把学习到的一些东西记录下来，工具用的是[印象笔记](https://www.yinxiang.com/)，这确实是个不错的学习方法。不过印象笔记并不支持markdown，网上也有很多方法让笔记以markdown语法的格式保存到印象笔记中。目前我用的是[马克飞象](http://marxi.co/)这款工具，比较方便，专业版是收费的。
+回归正题，将近一年的开发过程中，我都会把学习到的一些东西记录下来，工具用的是[印象笔记](https://www.yinxiang.com/)，这确实是个不错的学习方法。不过印象笔记并不支持markdown，网上也有很多方法让笔记以markdown语法的格式保存到印象笔记中。目前我用的是[马克飞象](http://marxi.co/)这款工具，比较方便，专业版是收费的。
 
 下面是我两年来一些无分类的琐碎笔记，或许有些对大家有帮助
 
@@ -195,8 +196,29 @@ ___
 [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
 self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
 {% endhighlight %}
-恢复UINavigationBar的底部的一像素线
+恢复
 {% highlight ruby %}
 [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
 self.navigationController.navigationBar.shadowImage = nil;
+{% endhighlight %}
+
+___
+
+###判断滑动方法
+* 纵向
+{% highlight ruby %}
+CGPoint velocity = [sender velocityInView:self];
+BOOL isVerticalGesture = fabsf(velocity.y) >= fabsf(velocity.x);
+{% endhighlight %}
+
+* 横向
+{% highlight ruby %}
+CGPoint velocity = [self.panGestureRecognizer velocityInView:self.panGestureRecognizer.view];
+BOOL isHorizontalGesture = fabs(velocity.y) <= fabs(velocity.x);
+{% endhighlight %}
+___
+###UIScrollView滚动到顶部
+
+{% highlight ruby %}
+self.tableView.contentOffset = CGPointMake(0, 0 - self.tableView.contentInset.top);
 {% endhighlight %}
