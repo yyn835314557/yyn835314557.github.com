@@ -136,6 +136,8 @@ git remote add gitcafe git@gitcafe.com:bawn/bawn.git
 {% endhighlight %}
 4.提交修改
 {% highlight ruby %}
+git add .
+git commit -m 'xxxxx'
 git push gitcafe gitcafe-pages
 {% endhighlight %}
 5.切换到master提交到github
