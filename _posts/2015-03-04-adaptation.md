@@ -61,4 +61,4 @@ description: iOS开发适配屏幕
 以及其中一个布局的示例
 ![image](/images/Adaptation/demo.png)
 
-**另外一个例子：**知乎上这个 [问题](http://www.zhihu.com/question/25308946?sort=created) 其中 [刘炜](http://www.zhihu.com/people/imneway) 的回答，关于 profile 页面的适配。手动设置ImageView的大小，也可以使用上述设置比例的方法解决。
+**另外一个例子：**知乎上这个 [问题](http://www.zhihu.com/question/25308946?sort=created) 其中 [刘炜](http://www.zhihu.com/people/imneway) 的回答，关于 profile 页面的适配。手动设置ImageView的大小，也可以使用上述设置比例的方法解决。 
