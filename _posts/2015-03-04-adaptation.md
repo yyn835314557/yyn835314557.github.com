@@ -14,10 +14,10 @@ description: iOS开发适配屏幕
 当时总结了下关于适配的几个点：
 
 1. 添加iPhone 6和iPhone 6 plus的启动图，或者使用xib作为启动视图，避免自动放大的适配
-2. 使用Autolayout，当然使用绝对布局不是完全不可取。
+2. 使用Autolayout，当然使用绝对布局并不是完全不可取。
 3. 添加@3x的切图，或者使用矢量图（推荐）
 
-做完这些这不就完事了吗，但后来发现一个问题，看下图
+做完这些这不就完事了吗，但后来发现一个问题
 
 ![image](/images/Adaptation/gesture.jpg)
 
@@ -51,12 +51,14 @@ description: iOS开发适配屏幕
 4. 最后 `Update Frames` 即可
 ![image](/images/Adaptation/update.png)
 
-这里提一下另一种布局方式，把Label作为View的子视图，并且上下水平居中，同样的设置View的高度比例，这种方式适用于控件较多的页面。
+这样一来，不论在什么屏幕上都会有比较好的布局效果。
+
+还有另一种布局方式，把Label作为View的子视图，并上下水平居中，同样的设置View的高度比例，这种方式适用于控件较多的页面。
 ![image](/images/Adaptation/other.jpg)
 
-需要提的是，利用比例布局的方式，可能没有单独判断并设置约束那么完美，但在复杂的界面布局时就较为有优势。目前项目中首页的适配效果：
+不过利用比例布局的方式，可能没有单独判断并设置约束那么完美，但在复杂的界面布局时就较为有优势。目前项目中首页的适配效果：
 ![image](/images/Adaptation/header.png)
 以及其中一个布局的示例
 ![image](/images/Adaptation/demo.png)
 
-**另外一个例子：**知乎上这个 [问题](http://www.zhihu.com/question/25308946?sort=created) 其中 [刘炜](http://www.zhihu.com/people/imneway) 的回答，关于 profile 页面的适配。手动设置ImageView的大小，也可以使用上诉设置比例的方法解决。
+**另外一个例子：**知乎上这个 [问题](http://www.zhihu.com/question/25308946?sort=created) 其中 [刘炜](http://www.zhihu.com/people/imneway) 的回答，关于 profile 页面的适配。手动设置ImageView的大小，也可以使用上述设置比例的方法解决。
