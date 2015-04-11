@@ -207,7 +207,7 @@ self.model = [[DataSourceGeneralModel alloc] initWithCellIdentifier:CelIdentifie
 self.model.dataSource = @[model1];
 {% endhighlight %}
 
-以上例子可以在[github](https://github.com/bawn/RAC-Demo)下载
+####以上例子可以到[github](https://github.com/bawn/RAC-Demo)下载
 
 ____
 
