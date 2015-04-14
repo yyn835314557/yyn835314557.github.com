@@ -325,21 +325,25 @@ mark {
 }
 
 code, tt {
-    /*padding: 1px 3px;
+/*    padding: 1px 3px;*/
+/*    font-family: Inconsolata, monospace, sans-serif;*/
+/*    font-size: 1.0em;*/
+/*    white-space: pre-wrap;*/
+/*    border: #E3EDF3 1px solid;*/
+/*    background: #F7FAFB;*/
+/*    border-radius: 2px;*/
+/*    小代码块*/
+    padding-top: 0.1em;
+    padding-right: 0.4em;
+    padding-bottom: 0.1em;
+    padding-left: 0.4em;
     font-family: Inconsolata, monospace, sans-serif;
-    font-size: 1.0em;
-    white-space: pre-wrap;
-    border: #E3EDF3 1px solid;
-    background: #F7FAFB;
-    border-radius: 2px;*/
-
-    padding: 0px 3px;
-    font-family: Inconsolata, monospace, sans-serif;
+    font-size:  1.0em;
     white-space: pre-wrap;
     background: #e6eff3;
-    font-size:  1.0em;
-    border: 1px solid #d1e2eb;
-    border-radius: 2px;
+    border: 1px solid #e6eff3;
+    border-radius: 3px;
+    vertical-align: bottom;
 }
 
 pre {
