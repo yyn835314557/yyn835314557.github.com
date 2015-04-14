@@ -117,7 +117,6 @@ MemberManaged *memberManaged = [MemberManaged MR_findAllWithPredicate:pre];
         // ...
     }];
 {% endhighlight %}
-为什么不用`[NSManagedObjectContext save:]`方法，请看[博客](http://samwize.com/2014/03/29/how-to-save-using-magicalrecord/)
 
 
 
@@ -125,7 +124,7 @@ MemberManaged *memberManaged = [MemberManaged MR_findAllWithPredicate:pre];
 
 ###基本转换
 
-上一篇[博文](http://bawn.github.io/2014/12/11/Mantle/)中提到Mantle的`<MTLManagedObjectSerializing>`协议，此协议有两个必须实现的方法:
+上一篇 [博文](http://bawn.github.io/2014/12/11/Mantle/) 中提到Mantle的 [MTLManagedObjectAdapter](https://github.com/Mantle/MTLManagedObjectAdapter) 类，2.0版本开发者已把此类作为一个单独 repo 从 Mantle 剥离出来，这个类有个名叫`MTLManagedObjectSerializing`的协议，此协议有两个必须实现的方法:
 {% highlight ruby %}
 //返回此类对应的实体类名
 + (NSString *)managedObjectEntityName;
@@ -146,13 +145,13 @@ MemberManaged *memberManaged = [MemberManaged MR_findAllWithPredicate:pre];
 
 {% highlight ruby %}
 @interface Member : MTLModel<MTLJSONSerializing, MTLManagedObjectSerializing>
-@property (nonatomic, retain) NSString * memberID;
-@property (nonatomic, retain) NSString * mobilePhone;
-@property (nonatomic, retain) NSDate * createDate;
-@property (nonatomic, retain) NSNumber *goldNumber;
+@property (nonatomic, retain) NSString   * memberID;
+@property (nonatomic, retain) NSString   * mobilePhone;
+@property (nonatomic, retain) NSDate     * createDate;
+@property (nonatomic, retain) NSNumber   *goldNumber;
 @property (nonatomic, assign) NSUInteger age;
-@property (nonatomic, assign) BOOL isVip;
-@property (nonatomic, retain) NSURL *url;
+@property (nonatomic, assign) BOOL       isVip;
+@property (nonatomic, retain) NSURL      *url;
 {% endhighlight %}
 
 >Member.m
@@ -165,49 +164,46 @@ MemberManaged *memberManaged = [MemberManaged MR_findAllWithPredicate:pre];
 {% endhighlight %}
 
 {% highlight ruby %}
-//表示Member类向MemberManaged类转换的字段映射，因为Member类的字段名是相同，所以这里返回nil
+//表示Member类向MemberManaged类转换的字段映射，也是需要写全的
 + (NSDictionary *)managedObjectKeysByPropertyKey{
-    return nil;
-}
-{% endhighlight %}
-
-{% highlight ruby %}
-//表示Member的url向MemberManaged的url字段值转换
-+ (NSValueTransformer *)entityAttributeTransformerForKey:(NSString *)key{
-    if ([key isEqualToString:@"url"]) {
-        return [MTLValueTransformer reversibleTransformerWithBlock:^id(NSURL *url) {
-            return url.absoluteString;
-        }];
-    }
-    else{
-        return nil;
-    }
+    return @{
+             @"memberID" : @"memberID",
+             @"mobilePhone" : @"mobilePhone",
+             @"createDate" : @"createDate",
+             @"goldNumber" : @"goldNumber",
+             @"age" : @"age",
+             @"isVip" : @"isVip",
+             @"url" : @"url"
+             };
 }
 {% endhighlight %}
 
 具体运用：
 {% highlight ruby %}
-    NSDictionary *dic = @{@"id" : @"1",
+    NSDictionary *dic = @{
+						  @"id" : @"2",
                           @"phone" : @"xxxxxxxx",
                           @"date" : @"2014-09-09",
                           @"goldNumber" : @2,
-                          @"age" : @"28",
+                          @"age" : @"18",
                           @"url" : @"http://bawn.github.io/",
                           @"isVip" : NSNull.null
                           };
+    
     Member *member = [MTLJSONAdapter modelOfClass:[Member class] fromJSONDictionary:dic error:nil];
+    
     [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
         [MTLManagedObjectAdapter managedObjectFromModel:member insertingIntoContext:localContext error:nil];
     } completion:^(BOOL success, NSError *error) {
-        NSLog(@"%@", [(MemberManaged *)[MemberManaged MR_findFirst] isVip]);
+        NSLog(@"%lu", (unsigned long)[MemberManaged MR_findAll].count);
     }];
 {% endhighlight %}
 
-1. `Member *member = [MTLJSONAdapter modelOfClass:[Member class] fromJSONDictionary:dic error:nil];`完成从NSDictionary-->Member转换，并返回Member实例
-2. `[MTLManagedObjectAdapter managedObjectFromModel:member insertingIntoContext:localContext error:nil];`完成Member-->MemberManaged转换，返回MemberManaged实例，但是我们并不需要。
+1. `Member *member = [MTLJSONAdapter modelOfClass:[Member class] fromJSONDictionary:dic error:nil];` 完成从NSDictionary-->Member转换，并返回Member实例
+2. `[MTLManagedObjectAdapter managedObjectFromModel:member insertingIntoContext:localContext error:nil];` 完成Member-->MemberManaged转换，返回MemberManaged实例，但是我们并不需要。
 3. 配合MagicalRecord储存方法`+ (void) saveWithBlock:(void(^)(NSManagedObjectContext *localContext))block;`
 
-注意：对于MemberManaged类，我们并不需要对它做任何的处理。
+**注意：对于MemberManaged类，我们并不需要对它做任何的处理。**
 
 
 ###唯一性检查
@@ -219,25 +215,27 @@ MemberManaged *memberManaged = [MemberManaged MR_findAllWithPredicate:pre];
 {% endhighlight %}
 表示当插入新数据的时候，对比需要插入的这条数据的memberID字段的值是否和数据库中的有相同。如果有相同就覆盖更新这条数据，如果没有就新增。这样带来的方便之处显而易见。
 
-执行一下代码
+更新数据
 {% highlight ruby %}
-  for (int n = 0; n < 2; n++) {
-        NSDictionary *dic = @{@"id" : @"1",
-                              @"phone" : @"xxxxxxxx",
-                              @"date" : @"2014-09-09",
-                              @"goldNumber" : @2,
-                              @"age" : @"18",
-                              @"url" : @"http://bawn.github.io/",
-                              @"isVip" : NSNull.null
-                              };
-        
-        Member *member = [MTLJSONAdapter modelOfClass:[Member class] fromJSONDictionary:dic error:nil];
-        [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-            [MTLManagedObjectAdapter managedObjectFromModel:member insertingIntoContext:localContext error:nil];
-        } completion:^(BOOL success, NSError *error) {
-            NSLog(@"%d", [(MemberManaged *)[MemberManaged MR_findFirst] isVip].boolValue);
-        }];
-    }
+  
+- (IBAction)updateData:(id)sender{
+    NSDictionary *dic = @{
+						  @"id" : @"2",
+                          @"phone" : @"xxxxxxxx",
+                          @"date" : @"2015-12-09",
+                          @"goldNumber" : @2,
+                          @"age" : @"19",
+                          @"url" : @"http://bawn.github.io/",
+                          @"isVip" : NSNull.null
+                          };
+    Member *member = [MTLJSONAdapter modelOfClass:[Member class] fromJSONDictionary:dic error:nil];
+    
+    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+        [MTLManagedObjectAdapter managedObjectFromModel:member insertingIntoContext:localContext error:nil];
+    } completion:^(BOOL success, NSError *error) {
+        NSLog(@"%lu", (unsigned long)[MemberManaged MR_findAll].count);
+    }];
+}
 {% endhighlight %}
 数据库中只有一条数据，因为插入的数据的memberID都是2。
 
