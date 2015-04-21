@@ -29,7 +29,6 @@ description: MagicalRecord配合Mantle
 后续的例子都是以此实体进行数据库的操作
 
 ##快速入门
-
 ###配置
 {% highlight ruby %}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

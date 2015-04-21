@@ -1,143 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
-  xmlns:content="http://purl.org/rss/1.0/modules/content/"
-  xmlns:dc="http://purl.org/dc/elements/1.1/"
-  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
-  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
-  <channel>
-    <title>Bawn</title>
-    <link>/pages/atom.xml</link>
-    <description>Blogging about stuffs</description>
-    <pubDate>Sun, 04 Jan 2015 00:00:00 +0800</pubDate>
-    <item>
-      <title>UIScrollView相对布局</title>
-      <link>/pages/atom.xml/ios/2015/01/04/UIScrollView.html</link>
-      <description>&lt;p&gt;UIScrollView在IB中的相对布局一直是个令人头疼的事情，大家所遇到的不外乎下面两个问题&lt;/p&gt;
-</description>
-      <pubDate>Sun, 04 Jan 2015 00:00:00 +0800</pubDate>
-      <dc:date>2015-01-04T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>MagicalRecord</title>
-      <link>/pages/atom.xml/ios/2014/12/15/MagicalRecord.html</link>
-      <description>&lt;p&gt;在开始之前，我们先创建一个名为MemberManaged的实体&lt;img src=&quot;/images/entity.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-</description>
-      <pubDate>Mon, 15 Dec 2014 00:00:00 +0800</pubDate>
-      <dc:date>2014-12-15T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>Mantle</title>
-      <link>/pages/atom.xml/ios/2014/12/11/Mantle.html</link>
-      <description>&lt;p&gt;Mantle的基本使用&lt;/p&gt;
-</description>
-      <pubDate>Thu, 11 Dec 2014 00:00:00 +0800</pubDate>
-      <dc:date>2014-12-11T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>杂记</title>
-      <link>/pages/atom.xml/ios/2014/11/24/Miscellany.html</link>
-      <description>&lt;p&gt;很久没更新博客了，一方面是.......另一方面是项目忙&lt;/p&gt;
-</description>
-      <pubDate>Mon, 24 Nov 2014 00:00:00 +0800</pubDate>
-      <dc:date>2014-11-24T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>RAC基本类介绍</title>
-      <link>/pages/atom.xml/ios/2014/09/28/RACCLASS.html</link>
-      <description>&lt;h2 id=&quot;ractuple&quot;&gt;RACTuple&lt;/h2&gt;
-</description>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0800</pubDate>
-      <dc:date>2014-09-28T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>iOS 8和Xcode 6的各种坑</title>
-      <link>/pages/atom.xml/ios/2014/09/20/iOS8.html</link>
-      <description>&lt;p&gt;总结iOS 8和Xcode 6的各种坑&lt;/p&gt;
-</description>
-      <pubDate>Sat, 20 Sep 2014 00:00:00 +0800</pubDate>
-      <dc:date>2014-09-20T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>ReactiveCocoa</title>
-      <link>/pages/atom.xml/ios/2014/09/03/ReactiveCocoa.html</link>
-      <description>&lt;p&gt;很早就开始关注&lt;a href=&quot;https://github.com/ReactiveCocoa/ReactiveCocoa&quot;&gt;ReactiveCocoa&lt;/a&gt;了，前段时间决定把它加入到项目中，理由如下:&lt;/p&gt;
-</description>
-      <pubDate>Wed, 03 Sep 2014 00:00:00 +0800</pubDate>
-      <dc:date>2014-09-03T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>统一设计，iOS6也玩扁平化(转载)</title>
-      <link>/pages/atom.xml/ios/2014/08/11/UnifiedDesign.html</link>
-      <description>&lt;p&gt;&lt;strong&gt;本文转载自&lt;a href=&quot;http://esoftmobile.com/2014/01/14/build-ios6-ios7-apps/&quot;&gt;Esoft Mobile&lt;/a&gt;，略有修改&lt;/strong&gt;&lt;/p&gt;
-</description>
-      <pubDate>Mon, 11 Aug 2014 00:00:00 +0800</pubDate>
-      <dc:date>2014-08-11T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>UIStatusBarStyle</title>
-      <link>/pages/atom.xml/ios/2014/07/29/UIStatusBarStyle.html</link>
-      <description>&lt;p&gt;在iOS中调整状态栏的样式有两种方式:&lt;/p&gt;
-</description>
-      <pubDate>Tue, 29 Jul 2014 00:00:00 +0800</pubDate>
-      <dc:date>2014-07-29T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>Masonry</title>
-      <link>/pages/atom.xml/ios/2014/07/29/Masonry.html</link>
-      <description>&lt;p&gt;用过&lt;code&gt;Autolayout&lt;/code&gt;都知道，用代码实现约束是多么麻烦的一件事，虽然有&lt;code&gt;VFL&lt;/code&gt;可视化语言在一定程度上减少了代码量，但是代码看起来有点别扭。后来发现这货：&lt;a href=&quot;https://github.com/Masonry/Masonry&quot;&gt;Masonry&lt;/a&gt;。&lt;/p&gt;
-</description>
-      <pubDate>Tue, 29 Jul 2014 00:00:00 +0800</pubDate>
-      <dc:date>2014-07-29T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>为类关联对象</title>
-      <link>/pages/atom.xml/ios/2014/06/15/AssociatedObject.html</link>
-      <description>&lt;p&gt;相信大家多多少少都见过&lt;code&gt;objc_setAssociatedObject&lt;/code&gt;和&lt;code&gt;objc_getAssociatedObject&lt;/code&gt;这两个方法。&lt;/p&gt;
-</description>
-      <pubDate>Sun, 15 Jun 2014 00:00:00 +0800</pubDate>
-      <dc:date>2014-06-15T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>NSCountedSet</title>
-      <link>/pages/atom.xml/ios/2014/05/30/NSCountedSet.html</link>
-      <description>&lt;p&gt;之前群里有人讨论计算老虎机中奖等级的问题：老虎机有四列，每列四个图案，如果四个相同就是等级1，三个相同就是等级2，以此类推。&lt;/p&gt;
-</description>
-      <pubDate>Fri, 30 May 2014 00:00:00 +0800</pubDate>
-      <dc:date>2014-05-30T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>毕业啦</title>
-      <link>/pages/atom.xml/%E5%85%B6%E4%BB%96/2014/05/29/graduation.html</link>
-      <description>&lt;p&gt;昨天考完大学最后的毕业考，基本宣告着我大学生涯的结束。&lt;/p&gt;
-</description>
-      <pubDate>Thu, 29 May 2014 00:00:00 +0800</pubDate>
-      <dc:date>2014-05-29T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>valueForKeyPath</title>
-      <link>/pages/atom.xml/ios/2014/05/07/valueForKeyPath.html</link>
-      <description>&lt;p&gt;或许大家在平常的开发中&lt;code&gt;- (id)valueForKeyPath:(NSString *)keyPath&lt;/code&gt;方法用的不多&lt;/p&gt;
-</description>
-      <pubDate>Wed, 07 May 2014 00:00:00 +0800</pubDate>
-      <dc:date>2014-05-07T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>NSPredicate</title>
-      <link>/pages/atom.xml/ios/2014/05/07/NSPredicate.html</link>
-      <description>&lt;p&gt;大家在平常的开发过程中多多少少都会接触到数据筛选，那势必会用到&lt;code&gt;NSPredicate&lt;/code&gt;&lt;/p&gt;
-</description>
-      <pubDate>Wed, 07 May 2014 00:00:00 +0800</pubDate>
-      <dc:date>2014-05-07T00:00:00+08:00</dc:date>
-    </item>
-    <item>
-      <title>Welcome to Jekyll!</title>
-      <link>/pages/atom.xml/thriller/comedy/horror/2013/11/10/welcome-to-jekyll.html</link>
-      <description>&lt;p&gt;You&amp;#39;ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory - edit this post and re-build (or run with the &lt;code&gt;-w&lt;/code&gt; switch) to see your changes!
-To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention: YYYY-MM-DD-name-of-post.ext.&lt;/p&gt;
-</description>
-      <pubDate>Sun, 10 Nov 2013 18:18:00 +0800</pubDate>
-      <dc:date>2013-11-10T18:18:00+08:00</dc:date>
-    </item>
-    <dc:date>2015-01-04T00:00:00+08:00</dc:date>
-  </channel>
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+    xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+    <channel>
+        <title>Bawn</title>
+        <link>/rss.xml</link>
+        <description>Blogging about stuffs</description>
+        <pubDate>Fri, 03 Apr 2015 00:00:00 +0800</pubDate>
+        <item>
+            <title>关于适配</title>
+            <link>/rss.xml/ios/2015/04/03/adaptation.html</link>
+            <description>&lt;p&gt;在苹果正式发布iPhone 6和iPhone 6 plus之后，对适配问题一直比较困扰，虽然项目一直用的是Autolayout，看完网上各种适配的文章后更是一团糟。&lt;/p&gt;
+            </description>
+            <pubDate>Fri, 03 Apr 2015 00:00:00 +0800</pubDate>
+            <dc:date>2015-04-03T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>ReactiveCocoa</title>
+            <link>/rss.xml/ios/2015/03/26/ReactiveCocoa.html</link>
+            <description>&lt;p&gt;很早就开始关注&lt;a href=&quot;https://github.com/ReactiveCocoa/ReactiveCocoa&quot;&gt;ReactiveCocoa&lt;/a&gt;了，前段时间决定把它加入到项目中，理由如下:&lt;/p&gt;
+            </description>
+            <pubDate>Thu, 26 Mar 2015 00:00:00 +0800</pubDate>
+            <dc:date>2015-03-26T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>代码统计、分析工具</title>
+            <link>/rss.xml/ios/2015/02/09/tool.html</link>
+            <description>&lt;p&gt;分享两个工具&lt;/p&gt;
+            </description>
+            <pubDate>Mon, 09 Feb 2015 00:00:00 +0800</pubDate>
+            <dc:date>2015-02-09T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>Jekyll博客搭建</title>
+            <link>/rss.xml/ios/2015/01/23/bolgSetUp.html</link>
+            <description>&lt;p&gt;由于博客已经换了搭建平台和主题，之前文章的评论已丢失，在这里对那些做过评论的网友说声抱歉。&lt;/p&gt;
+            </description>
+            <pubDate>Fri, 23 Jan 2015 00:00:00 +0800</pubDate>
+            <dc:date>2015-01-23T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>UIScrollView相对布局</title>
+            <link>/rss.xml/ios/2015/01/04/UIScrollView.html</link>
+            <description>&lt;p&gt;UIScrollView在IB中的相对布局一直是个令人头疼的事情，大家所遇到的不外乎下面两个问题&lt;/p&gt;
+            </description>
+            <pubDate>Sun, 04 Jan 2015 00:00:00 +0800</pubDate>
+            <dc:date>2015-01-04T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>MagicalRecord</title>
+            <link>/rss.xml/ios/2014/12/15/MagicalRecord.html</link>
+            <description>&lt;p&gt;在开始之前，我们先创建一个名为MemberManaged的实体&lt;/p&gt;
+            </description>
+            <pubDate>Mon, 15 Dec 2014 00:00:00 +0800</pubDate>
+            <dc:date>2014-12-15T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>Mantle</title>
+            <link>/rss.xml/ios/2014/12/11/Mantle.html</link>
+            <description>&lt;p&gt;Mantle的基本使用&lt;/p&gt;
+            </description>
+            <pubDate>Thu, 11 Dec 2014 00:00:00 +0800</pubDate>
+            <dc:date>2014-12-11T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>杂记</title>
+            <link>/rss.xml/ios/2014/11/24/Miscellany.html</link>
+            <description>&lt;p&gt;很久没更新博客了，一方面是.......另一方面是项目忙&lt;/p&gt;
+            </description>
+            <pubDate>Mon, 24 Nov 2014 00:00:00 +0800</pubDate>
+            <dc:date>2014-11-24T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>RAC基本类介绍</title>
+            <link>/rss.xml/ios/2014/09/28/RACCLASS.html</link>
+            <description>&lt;p&gt;RAC基本类介绍&lt;/p&gt;
+            </description>
+            <pubDate>Sun, 28 Sep 2014 00:00:00 +0800</pubDate>
+            <dc:date>2014-09-28T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>iOS 8和Xcode 6的各种坑</title>
+            <link>/rss.xml/ios/2014/09/20/iOS8.html</link>
+            <description>&lt;p&gt;总结iOS 8和Xcode 6的各种坑&lt;/p&gt;
+            </description>
+            <pubDate>Sat, 20 Sep 2014 00:00:00 +0800</pubDate>
+            <dc:date>2014-09-20T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>统一设计，iOS6也玩扁平化(转载)</title>
+            <link>/rss.xml/ios/2014/08/11/UnifiedDesign.html</link>
+            <description>&lt;p&gt;&lt;strong&gt;本文转载自&lt;a href=&quot;http://esoftmobile.com/2014/01/14/build-ios6-ios7-apps/&quot;&gt;Esoft Mobile&lt;/a&gt;，略有修改&lt;/strong&gt;&lt;/p&gt;
+            </description>
+            <pubDate>Mon, 11 Aug 2014 00:00:00 +0800</pubDate>
+            <dc:date>2014-08-11T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>UIStatusBarStyle</title>
+            <link>/rss.xml/ios/2014/07/29/UIStatusBarStyle.html</link>
+            <description>&lt;p&gt;在iOS中调整状态栏的样式有两种方式:&lt;/p&gt;
+            </description>
+            <pubDate>Tue, 29 Jul 2014 00:00:00 +0800</pubDate>
+            <dc:date>2014-07-29T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>Masonry</title>
+            <link>/rss.xml/ios/2014/07/29/Masonry.html</link>
+            <description>&lt;p&gt;用过&lt;code&gt;Autolayout&lt;/code&gt;都知道，用代码实现约束是多么麻烦的一件事，虽然有&lt;code&gt;VFL&lt;/code&gt;可视化语言在一定程度上减少了代码量，但是代码看起来有点别扭。后来发现这货：&lt;a href=&quot;https://github.com/Masonry/Masonry&quot;&gt;Masonry&lt;/a&gt;。&lt;/p&gt;
+            </description>
+            <pubDate>Tue, 29 Jul 2014 00:00:00 +0800</pubDate>
+            <dc:date>2014-07-29T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>为类关联对象</title>
+            <link>/rss.xml/ios/2014/06/15/AssociatedObject.html</link>
+            <description>&lt;p&gt;相信大家多多少少都见过&lt;code&gt;objc_setAssociatedObject&lt;/code&gt;和&lt;code&gt;objc_getAssociatedObject&lt;/code&gt;这两个方法。&lt;/p&gt;
+            </description>
+            <pubDate>Sun, 15 Jun 2014 00:00:00 +0800</pubDate>
+            <dc:date>2014-06-15T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>NSCountedSet</title>
+            <link>/rss.xml/ios/2014/05/30/NSCountedSet.html</link>
+            <description>&lt;p&gt;之前群里有人讨论计算老虎机中奖等级的问题：老虎机有四列，每列四个图案，如果四个相同就是等级1，三个相同就是等级2，以此类推。&lt;/p&gt;
+            </description>
+            <pubDate>Fri, 30 May 2014 00:00:00 +0800</pubDate>
+            <dc:date>2014-05-30T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>毕业啦</title>
+            <link>/rss.xml/%E5%85%B6%E4%BB%96/2014/05/29/graduation.html</link>
+            <description>&lt;p&gt;昨天考完大学最后的毕业考，基本宣告着我大学生涯的结束。&lt;/p&gt;
+            </description>
+            <pubDate>Thu, 29 May 2014 00:00:00 +0800</pubDate>
+            <dc:date>2014-05-29T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>valueForKeyPath</title>
+            <link>/rss.xml/ios/2014/05/07/valueForKeyPath.html</link>
+            <description>&lt;p&gt;或许大家在平常的开发中&lt;code&gt;- (id)valueForKeyPath:(NSString *)keyPath&lt;/code&gt;方法用的不多&lt;/p&gt;
+            </description>
+            <pubDate>Wed, 07 May 2014 00:00:00 +0800</pubDate>
+            <dc:date>2014-05-07T00:00:00+08:00</dc:date>
+        </item>
+        <item>
+            <title>NSPredicate</title>
+            <link>/rss.xml/ios/2014/05/07/NSPredicate.html</link>
+            <description>&lt;p&gt;大家在平常的开发过程中多多少少都会接触到数据筛选，那势必会用到&lt;code&gt;NSPredicate&lt;/code&gt;&lt;/p&gt;
+            </description>
+            <pubDate>Wed, 07 May 2014 00:00:00 +0800</pubDate>
+            <dc:date>2014-05-07T00:00:00+08:00</dc:date>
+        </item>
+        <dc:date>2015-04-03T00:00:00+08:00</dc:date>
+    </channel>
 </rss>
