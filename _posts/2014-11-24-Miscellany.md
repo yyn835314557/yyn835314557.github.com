@@ -110,21 +110,16 @@ ___
 ###URLWithString:返回nil
 解决办法
 {% highlight ruby %}
-    NSString *tempString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURL *url = [NSURL URLWithString:tempString];
+NSString *tempString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+NSURL *url = [NSURL URLWithString:tempString];
 {% endhighlight %}
 ___
-###判断string是中文还是英文
+###判断string是否包含中文
 {% highlight ruby %}
-    unichar c = [searchString characterAtIndex:0];
-    //        汉字
-        if (c >= 0x4E00 && c <= 0x9FFF){
+NSRegularExpression *regularExpression = [NSRegularExpression regularExpressionWithPattern:@"[\u4e00-\u9fa5]" options:0 error:nil];
 
-        }
-    //        英文
-        else{
-       
-        }
+    // 返回中文的个数numberOfMatches
+NSUInteger numberOfMatches = [regularExpression numberOfMatchesInString:string options:0 range:NSMakeRange(0, [string length])];
 {% endhighlight %}
 ___
 ###度数转换为弧度
