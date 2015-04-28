@@ -14,7 +14,7 @@ description: iOS UI自动化测试
 
 ##基本介绍
 
-`⌘ + I` 打开Instruments，选择 UiAutomation
+`⌘ + I` 打开Instruments，选择 UiAutomation，基本界面就是这样
 
 ![image](/images/UiAutomation/tool.png)
 **功能区域介绍:**<br>
@@ -25,7 +25,7 @@ description: iOS UI自动化测试
 ⑤ 脚本或是Log选择菜单<br>
 ⑥ 自动生成JS脚本代码的开始、结束和停止按钮<br>
 
-看一个简单的例子，APP的界面上有一个UITextField，称之为`A元素`，Navigationbar有个rightItem，称之为`B元素`，点击rightItem会push到另一个VC
+看一个简单的测试例子，APP的界面上有一个UITextField，称之为`A元素`，Navigationbar有个rightItem，称之为`B元素`，点击rightItem会push到另一个VC
 ![image](/images/UiAutomation/screen.png)
 
 在④中选择一个空的脚本写入下列代码，对 JS 不了解的也不用当心，自动化测试的 JS 代码非常简单。
@@ -40,7 +40,7 @@ app.logElementTree();
 `⌘ + R`跑一下，②区域应该会自动切换到Log界面
 ![image](/images/UiAutomation/log.png)
 
-Log打印出来的是当前界面的元素（UIAElement）树，同层级的元素会被包含到数组中，模拟用户操作其实就是对元素的操作，那么获取到元素才是关键。<br>
+Log打印出来的是当前界面的元素（UIAElement）树，同层级的元素会被包含到数组中，模拟用户操作其实就是对元素的操作，那么获取到元素才是关键。`logElementTree()`这个函数非常有用，在页面切换的时候记得要再次调用，以便找到你想要的元素<br>
 
 **补充脚本：**
 {% highlight ruby %}
