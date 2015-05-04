@@ -209,4 +209,6 @@ instruments -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Con
 
 另外推荐一个开源的测试库[tuneup_js](https://github.com/alexvollmer/tuneup_js)，以及[文档](http://www.tuneupjs.org/installation.html)。
 
+####注意：提交项目的时候若遇到Error itms-90035错误请尝试去掉[tuneup_js](https://github.com/alexvollmer/tuneup_js)库。
+
 __参考：[知平软件](http://www.cnblogs.com/vowei/archive/2012/08/10/2631949.html#3105924)__
