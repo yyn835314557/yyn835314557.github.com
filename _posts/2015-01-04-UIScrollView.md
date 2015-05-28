@@ -56,7 +56,7 @@ __另外需要注意的是，对于固定行数和固定text值的label，高宽
 
 1. 设置viewcontroller的宽度
 ![image](/images/UIScrollView/UIScrollView-5.png)
-这样一来就可以在超过两屏宽度的视图上布局
+选择Size设置为Freeform，这样一来就可以在超过两屏宽度的视图上布局
 2. 拖两个view到UIScrollView上，分别设置好颜色，view1代表红色view，view2代表黑色view
 ![image](/images/UIScrollView/UIScrollView-6.png)
 3. view1设置左、上、下约束为0，向右相对于view2属于设置0，view2设置右、上、下约束为0
