@@ -17,6 +17,8 @@ description: iOS开发适配屏幕
 2. 使用Autolayout，当然使用绝对布局并不是完全不可取。
 3. 添加@3x的切图，或者使用矢量图（推荐）
 
+需要补充说明的是，使用PDF矢量图时，Xcode会在编译的时候把它处理成三张png图片，分别是`@1x` `@2x` `@3x` 也就说最终的包里面并不是PDF文件，而是这三张图片。
+
 做完这些这不就完事了吗，但后来发现一个问题
 
 ![image](/images/Adaptation/gesture.jpg)
@@ -62,3 +64,4 @@ description: iOS开发适配屏幕
 ![image](/images/Adaptation/demo.png)
 
 **另外一个例子：**知乎上这个 [问题](http://www.zhihu.com/question/25308946?sort=created) 其中 [刘炜](http://www.zhihu.com/people/imneway) 的回答，关于 profile 页面的适配。手动设置ImageView的大小，也可以使用上述设置比例的方法解决。 
+
