@@ -17,16 +17,18 @@ description: 带有动画的UIPageControl
 
 __使用方法:__
 {% highlight ruby %}
-LCAnimatedPageControl *pageControl = [[LCAnimatedPageControl alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 40, 280, 20)];
-pageControl.numberOfPages = 5;// 指示器的数量
-pageControl.indicatorMargin = 5.0f;// 指示器之间的间隔，默认是0
-pageControl.indicatorMultiple = 1.6f;// 指示器的放大倍数，默认是2
+
+self.pageControl = [[LCAnimatedPageControl alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 40, 280, 20)];
+self.pageControl.center = CGPointMake(self.view.frame.size.width * 0.5f, _pageControl.center.y);
+self.pageControl.numberOfPages = 5;指示器的数量
+self.pageControl.indicatorMargin = 5.0f;// 指示器之间的间隔，默认是0
+self.pageControl.indicatorMultiple = 1.6f;// 指示器的放大倍数，默认是2
 pageControl.pageIndicatorColor = [UIColor grayColor];// 普通状态下的颜色
 pageControl.currentPageIndicatorColor = [UIColor redColor];// 当前状态下的颜色
-pageControl.sourceScrollView = _collectionView;
-[pageControl show];
-[self.view addSubview:pageControl];
-pageControl.center = CGPointMake(self.view.frame.size.width * 0.5f, pageControl.center.y);
+self.pageControl.sourceScrollView = _collectionView;
+[self.pageControl prepareShow];// 全部属性设置完后再调用
+[self.view addSubview:_pageControl];
+
 {% endhighlight %}
 
 注意，`indicatorMargin`调整的间距是两个指示器都在放大状态下的距离，图示：
@@ -41,5 +43,5 @@ pageControl.center = CGPointMake(self.view.frame.size.width * 0.5f, pageControl.
 
 ##TODO
 
-1. 增加调整指示器数量的功能
+1. <del>增加调整指示器数量的功能</del>
 2. 尝试解决跨多个指示器的动画不能复原的问题，所以目前指示器的点击只能跳转到相邻的位置
