@@ -10,7 +10,7 @@ publish: true
 description: 带有动画的UIPageControl
 ---
 
-开源一个带有简单动画的PageControl控件，地址[GitHub](https://github.com/bawn/LCAnimatedPageControl)。
+开源一个带有简单动画的PageControl控件，支持Autolayout，地址[GitHub](https://github.com/bawn/LCAnimatedPageControl)。
 在项目中的使用效果：
 
 ![1](/images/LCAnimatedPageControl/demo.gif)
@@ -23,12 +23,12 @@ self.pageControl.center = CGPointMake(self.view.frame.size.width * 0.5f, _pageCo
 self.pageControl.numberOfPages = 5;指示器的数量
 self.pageControl.indicatorMargin = 5.0f;// 指示器之间的间隔，默认是0
 self.pageControl.indicatorMultiple = 1.6f;// 指示器的放大倍数，默认是2
+self.pageControl.indicatorDiameter = 10.0f;// 指示器的直径
 pageControl.pageIndicatorColor = [UIColor grayColor];// 普通状态下的颜色
 pageControl.currentPageIndicatorColor = [UIColor redColor];// 当前状态下的颜色
 self.pageControl.sourceScrollView = _collectionView;
 [self.pageControl prepareShow];// 全部属性设置完后再调用
 [self.view addSubview:_pageControl];
-
 {% endhighlight %}
 
 注意，`indicatorMargin`调整的间距是两个指示器都在放大状态下的距离，图示：
