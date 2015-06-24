@@ -34,6 +34,12 @@ self.pageControl.sourceScrollView = _collectionView;
 注意，`indicatorMargin`调整的间距是两个指示器都在放大状态下的距离，图示：
 ![2](/images/LCAnimatedPageControl/indicatorMargin.png)
 
+如果 scrollView 不是滚动到相邻位置的，必须实现以下协议方法，调用`clearIndicators`方法
+{% highlight ruby %}
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView;{
+    [self.pageControl clearIndicators];
+}
+{% endhighlight %}
 
 另外和和原生的`UIPageControl`一样，监听当前显示指示器的位置变化，使用的是`target - action`的形式：
 
@@ -44,4 +50,4 @@ self.pageControl.sourceScrollView = _collectionView;
 ##TODO
 
 1. <del>增加调整指示器数量的功能</del>
-2. 尝试解决跨多个指示器的动画不能复原的问题，所以目前指示器的点击只能跳转到相邻的位置
+2. <del>尝试解决跨多个指示器的动画不能复原的问题，所以目前指示器的点击只能跳转到相邻的位置</del>
