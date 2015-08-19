@@ -114,4 +114,5 @@ git push
 ####添加多说评论
 
 将 `_layouts/post.html` 中的 `<footer class="post-footer">` 到 `</footer>`之间的内容替换为多说的评论代码，比如我替换后是这样的:
-![image](/images/jekyll/comment.png)
+![image](/images/jekyll/duoshuocomment.png)
+不过 `data-thread-key` 目前不知道怎么赋值，若有知道的同学请告诉我下。

@@ -18,28 +18,27 @@ post_class: post-template
 
         <header class="post-header">
             <h1 class="post-title">{{ page.title }}</h1>
-            <section class="post-meta">                
+            <section class="post-meta">
                 <time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time>
-                {% if page.categories.size > 0 %} 
-                    {{ page.categories | array_to_sentence_string | prepend: 'on ' }} 
+                {% if page.categories.size > 0 %}
+                    {{ page.categories | array_to_sentence_string | prepend: 'on ' }}
                 {% endif %}
             </section>
         </header>
-
 <!--         <header class="post-header">
             <a id="blog-logo" href="{{site.url}}">
                 {% if site.logo %}
                     <img src="{{site.logo}}" alt="{{ site.name }}" />
                 {% else %}
                     <span class="blog-title">{{ site.name }}</span>
-                {%endif%} 
+                {%endif%}
             </a>
         </header> -->
-        
+
         <!-- <span class="post-meta">
             <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time>
-            {% if page.categories.size > 0 %} 
-                {{ page.categories | array_to_sentence_string | prepend: 'on ' }} 
+            {% if page.categories.size > 0 %}
+                {{ page.categories | array_to_sentence_string | prepend: 'on ' }}
             {% endif %}
         </span> -->
 
@@ -55,16 +54,16 @@ post_class: post-template
             <ul>
                 {% for post in site.posts %}
                     <li><span>{{ post.date | date_to_string }}</span>  <a href="{{ post.url }}">{{ post.title }}</a></li>
-                {% endfor %}    
+                {% endfor %}
             </ul>
         </section>
         {% endif %}
-        
+
 
         <footer class="post-footer">
-            
+
             <!-- 多说评论 BEGIN -->
-            <div class="ds-thread" data-thread-key=page.title ></div>
+            <div class="ds-thread"></div>
             <script type="text/javascript">
                 var duoshuoQuery = {short_name:"bawn"};
                 (function() {
@@ -78,8 +77,8 @@ post_class: post-template
                 </script>
             <!-- 多说评论 END -->
         </footer>
-        
-        
+
+
     </article>
 
 </main>
