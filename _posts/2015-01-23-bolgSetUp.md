@@ -111,10 +111,7 @@ git push
 <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
 {% endhighlight %}
 
+####添加多说评论
 
-
-
-
-
-
-
+将 `_layouts/post.html` 中的 `<footer class="post-footer">` 到 `</footer>`之间的内容替换为多说的评论代码，比如我替换后是这样的:
+![image](/images/jekyll/comment.png)
