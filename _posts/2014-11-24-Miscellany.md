@@ -221,6 +221,7 @@ self.tableView.contentOffset = CGPointMake(0, 0 - self.tableView.contentInset.to
 ___
 ###APP中禁用第三方键盘
 
+在`AppDelegate`中添加
 {% highlight ruby %}
 
 - (BOOL)application:(UIApplication *)application shouldAllowExtensionPointIdentifier:(NSString *)extensionPointIdentifier {
