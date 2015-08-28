@@ -222,10 +222,12 @@ ___
 ###APP中禁用第三方键盘
 
 {% highlight ruby %}
+
 - (BOOL)application:(UIApplication *)application shouldAllowExtensionPointIdentifier:(NSString *)extensionPointIdentifier {
     if ([extensionPointIdentifier isEqualToString: UIApplicationKeyboardExtensionPointIdentifier]) {
         return NO;
     }
     return YES;
 }
+
 {% endhighlight %}
