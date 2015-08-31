@@ -9,7 +9,7 @@ keywords: AFNetworking iOS
 publish: true
 description: 网络请求封装库
 ---
-网络层的封装一直是项目中不足之处，前不久看了唐巧大神的[YTKNetwork](https://github.com/yuantiku/YTKNetwork)后又拜读了宇大神的这篇[博客](http://casatwy.com/iosying-yong-jia-gou-tan-wang-luo-ceng-she-ji-fang-an.html?utm_source=tuicool)，前者让我看到了离散型API封装的典型例子，后者恰好又提供了用 protocol 封装的很好思路以及说明了继承方式的封装的优缺点，于是结合两者 LCNetwork 就诞生了。
+网络层的封装一直是项目中不足之处，前不久看了唐巧大神的[YTKNetwork](https://github.com/yuantiku/YTKNetwork)后又拜读了宇大神的这篇[博客](http://casatwy.com/iosying-yong-jia-gou-tan-wang-luo-ceng-she-ji-fang-an.html?utm_source=tuicool)，前者让我看到了离散型API封装的典型例子，后者恰好又提供了用 protocol 封装的很好思路以及说明了继承方式的封装的优缺点，于是结合两者 LCNetwork 就诞生了。项目地址[github](https://github.com/bawn/LCNetwork)
 
 LCNetwork 主要功能有
 
