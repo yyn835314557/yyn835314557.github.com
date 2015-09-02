@@ -111,6 +111,30 @@ git push
 <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
 {% endhighlight %}
 
+###配置博客的相关信息
+在`_config.yml`文件中修改，比如我的如下
+
+{% highlight ruby %}
+name: Bawn
+description: Blogging about stuffs
+meta_description: "Bawn's Blog"
+
+markdown: redcarpet
+redcarpet:
+extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+
+highlighter: pygments
+logo: false
+paginate: 20
+baseurl: /
+domain_name: 'http://bawn.github.io/'
+google_analytics: 'UA-XXXXXXXX-X'
+
+# Details for the RSS feed generator
+url:            '/rss.xml'
+author:         'Bawn'
+{% endhighlight %}
+
 ####添加多说评论
 
 将 `_layouts/post.html` 中的 `<footer class="post-footer">` 到 `</footer>`之间的内容替换为多说的评论代码，比如我替换后是这样的:
