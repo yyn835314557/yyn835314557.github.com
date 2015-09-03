@@ -112,10 +112,10 @@ git push
 {% endhighlight %}
 
 ###配置博客的相关信息
-在`_config.yml`文件中修改，比如我的如下
+在`_config.yml`文件中修改，比如我的配置如下
 
 {% highlight ruby %}
-name: Bawn
+name: Bawn 
 description: Blogging about stuffs
 meta_description: "Bawn's Blog"
 
