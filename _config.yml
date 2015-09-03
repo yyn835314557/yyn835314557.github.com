@@ -1,6 +1,6 @@
 name: Bawn
 description: Blogging about stuffs
-meta_description: "Bawn's Blog"
+meta_description: "iOS 开发博客"
 
 markdown: redcarpet
 redcarpet:
@@ -16,4 +16,3 @@ google_analytics: 'UA-XXXXXXXX-X'
 # Details for the RSS feed generator
 url:            '/rss.xml'
 author:         'Bawn'
-
