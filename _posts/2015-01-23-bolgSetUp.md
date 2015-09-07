@@ -19,9 +19,9 @@ description: Jekyll博客搭建, 迁移到gitcafe
 
 * [Ruby](https://www.ruby-lang.org/en/downloads/)：Mac OS X 10.5以上都自带
 * [RubyGems](https://rubygems.org/pages/download)：Mac OS X 10.5以上都自带
-* [NodeJS](http://nodejs.org/)：http://nodejs.org/ 下载安装即可。
-* Xcode Command-Line Tools: 安装Xcode会自动安装，检查`Preferences → Downloads → Components`是否有Command-Line Tools这项提供下载，如果没有说明已安装。
-* [git](http://sourceforge.net/projects/git-osx-installer/)：通过http://sourceforge.net/projects/git-osx-installer/ 下载安装即可
+* [NodeJS](http://nodejs.org/)：命令行输入`node -v`检查是否已安装，下载地址：http://nodejs.org/
+* Xcode Command-Line Tools： 安装Xcode会自动安装，检查`Preferences → Downloads → Components`是否有Command-Line Tools这项提供下载，如果没有说明已安装
+* [git](http://sourceforge.net/projects/git-osx-installer/)：命令行输入`git --version`检查是否已安装，下载地址：http://sourceforge.net/projects/git-osx-installer/
 
 
 命令行安装Jekyll
@@ -48,7 +48,8 @@ http://ruby.taobao.org/
 ####安装主题
 
 1. Fork我使用的这款主题[kasper](https://github.com/rosario/kasper)
-2. 修改这个项目的名称为：`xxxxxx.github.io`xxxx为你的github用户名，比如我的用户名是bawn，那么就需要修改成`bawn.github.io`，这个也正是你博客的地址
+2. 把fork后的项目名改为：`xxxxxx.github.io`xxxx为你的github用户名，比如我的用户名是bawn，那么就需要修改成`bawn.github.io`，这个也正是你博客的地址。
+点击项目右侧 settings 菜单，进入后修改 `Repository name`就是了。
 
 完成这两步之后，在你的浏览器上输入xxxxxx.github.io或者xxxxxx.github.com，就会出现你个人博客的页面(可能需要等待几分钟)，这时候你的博客上	应该有一篇主题作者的默认文章叫做Welcome to Jekyll!
 
@@ -115,7 +116,7 @@ git push
 在`_config.yml`文件中修改，比如我的配置如下
 
 {% highlight ruby %}
-name: Bawn 
+name: Bawn
 description: Blogging about stuffs
 meta_description: "Bawn's Blog"
 
