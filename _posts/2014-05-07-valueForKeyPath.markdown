@@ -54,6 +54,15 @@ NSNumber *max = [array valueForKeyPath:@"@max.floatValue"];
 NSNumber *min = [array valueForKeyPath:@"@min.floatValue"];
 {% endhighlight %}
 
+这里有一点需要注意，`@sum` 和 `@avg`的集合操作，会先把对象先转换为 double 值，
+最后输出包含 double 值的 NSNumber 对象，所以千万不要放这样的错误：
+
+{% highlight ruby %}
+NSArray *arr = @[@(0),@(10),@(40)];
+NSInteger avg = [[arr valueForKeyPath:@"@avg.self"] integerValue];
+NSLog(@"---%ld----",avg);
+{% endhighlight %}
+integerValue 操作后直接返回 0 了
 
 
 
@@ -126,4 +135,3 @@ NSNumber *max = [array valueForKeyPath:@"@max.number"];
     [searchField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
 {% endhighlight %}
 比起重写`- (void)drawPlaceholderInRect:(CGRect)rect;`要方便很多
-
