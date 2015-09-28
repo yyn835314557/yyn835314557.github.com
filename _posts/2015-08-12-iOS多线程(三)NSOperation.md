@@ -4,7 +4,7 @@ title: "iOS 多线程 (三) NSOperation"
 date: 2015-08-12
 comments: true
 categories: iOS
-tags: [NSOperation] [多线程]
+tags: [NSOperation] 
 keywords: NSOperation iOS多线程
 description: iOS多线程(三)NSOperation
 ---
