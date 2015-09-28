@@ -13,7 +13,7 @@ description: UIViewController的生命周期及iOS程序执行顺序
 
 上一篇：
 
-[iOS NSNotificationCenter 详解](2015/08/25/iOS NSNotificationCenter 详解.md)
+[iOS NSNotificationCenter 详解](2015/08/25/iOS NSNotificationCenter 详解.html)
 #UIViewController的生命周期及iOS程序执行顺序
 
 > A页面 -> B页面:
