@@ -4,7 +4,7 @@ title: "iOS开发中的RunLoop,RunTime"
 date: 2015-08-20
 comments: true
 categories: iOS
-tags: [RunLoop] [RunTime]
+tags: [运行原理] 
 keywords: 运行机制 
 description: iOS开发中的RunLoop,RunTime
 ---
