@@ -1,6 +1,6 @@
-name: Bawn
+name: YouYinan
 description: Blogging about stuffs
-meta_description: "iOS 开发博客"
+meta_description: "我的iOS开发之旅"
 
 markdown: redcarpet
 redcarpet:
@@ -10,9 +10,9 @@ highlighter: pygments
 logo: false
 paginate: 20
 baseurl: /
-domain_name: 'http://bawn.github.io/'
+domain_name: 'https://yyn835314557.github.io/'
 google_analytics: 'UA-XXXXXXXX-X'
 
 # Details for the RSS feed generator
-url:            '/rss.xml'
-author:         'Bawn'
+url:            'blog url'
+author:         'YouYinan'
