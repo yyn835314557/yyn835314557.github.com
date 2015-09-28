@@ -1,3 +1,19 @@
+---
+layout: post
+title: "UIViewController的生命周期及iOS程序执行顺序"
+date: 2015-08-30
+comments: true
+categories: iOS
+tags: [UIViewController]
+keywords: 视图控机制 
+description: UIViewController的生命周期及iOS程序执行顺序
+---
+
+上文章篇介绍了iOS应用程序的消息处理机制，本篇主要介绍iOS开发中的视图控制器的生命周期，这是iOS开发中的重点。
+
+上一篇：
+
+[iOS NSNotificationCenter 详解](/2015-08-25-iOS NSNotificationCenter 详解.md)
 #UIViewController的生命周期及iOS程序执行顺序
 
 > A页面 -> B页面:
@@ -67,3 +83,5 @@
  	设备内存不足的时候， view 控制器会收到didReceiveMemoryWarning的消息;
  	默认的实现是检查当前控制器的view是否在使用。如果它的view不在当前正在使用的view hierarchy里面，且你的控制器实现了loadView方法，那么这个view将被release, loadView方法将被再次调用来创建一个新的view。
  	系统会在内存不足时调用viewDidUnload，再次展示该页面时，还会调用viewDidLoad
+
+***

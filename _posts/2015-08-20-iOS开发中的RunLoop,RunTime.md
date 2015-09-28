@@ -1,4 +1,20 @@
-# iOS开发中的RunLoop,RunTime
+---
+layout: post
+title: "iOS开发中的RunLoop,RunTime"
+date: 2015-08-20
+comments: true
+categories: iOS
+tags: [RunLoop] [RunTime]
+keywords: 运行机制 
+description: iOS开发中的RunLoop,RunTime
+---
+
+上文章篇介绍了iOS应用程序的生命周期，本篇主要介绍iOS开发中的RunLoop与RunTime。
+
+上一篇：
+
+[iOS应用程序生命周期(前后台切换，应用的各种状态)详解](/2015-08-15-iOS应用程序生命周期(前后台切换，应用的各种状态)详解.md)
+
 
 - OC调用函数机制
 	- 函数调用称之为消息的分发，编译的时候不需要查找要执行的函数，必须要等到真正运行的时候，程序才查找要执行的函数。
@@ -62,3 +78,10 @@
 		> 一个 RunLoop 包含若干个 Mode，每个 Mode 又包含若干个 Source/Timer/Observer。每次调用 RunLoop 的主函数时，只能指定其中一个 Mode，这个Mode被称作 CurrentMode。如果需要切换 Mode，只能退出 Loop，再重新指定一个 Mode 进入。这样做主要是为了分隔开不同组的 Source/Timer/Observer，让其互不影响。
 
 	- RunLoop的Mode
+
+
+***
+
+下一篇:
+
+[iOS NSNotificationCenter 详解.md](/2015-08-25-iOS NSNotificationCenter 详解.md)

@@ -1,6 +1,19 @@
-# iOS 多线程（三）NSOperation
+---
+layout: post
+title: "iOS 多线程 (三) NSOperation"
+date: 2015-08-12
+comments: true
+categories: iOS
+tags: [NSOperation] [多线程]
+keywords: NSOperation iOS多线程
+description: iOS多线程(三)NSOperation
+---
 
-##NSOperation
+上两文章篇介绍了NSThread以及GCD的使用，本篇介绍iOS多线程编程中的最后一种方法NSOperation。
+
+上一篇：
+[iOS多线程(二)GCD](/2015-08-10-iOS多线程(二)GCD.md)
+
 
 > NSOperation是苹果封装的一套多线程的东西，不像GCD是纯C语言的，这个是OC的。但相比较之下GCD会更快一些，但本质上NSOPeration是多GDC的封装。
 
@@ -53,3 +66,9 @@
  3. 依赖
 
  4. 操作的监听
+
+ ***
+
+下一篇:
+
+[iOS应用程序生命周期(前后台切换，应用的各种状态)详解](/2015-08-15-iOS应用程序生命周期(前后台切换，应用的各种状态)详解.md)
