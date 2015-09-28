@@ -60,14 +60,14 @@ post_class: post-template
         {% endif %}
 
 
-        <footer class="post-footer">
+<!--         <footer class="post-footer">
 
 
 
             <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'bawn';
+    var disqus_shortname = 'yyn835314557';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -79,6 +79,32 @@ post_class: post-template
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 
+        </footer> -->
+        <footer class="post-footer">
+            <!-- If we want to display author's name and bio -->
+            {% if site.author %}
+                <figure class="author-image">
+                    <a class="img" href="{{ site.baseurl }}" style="background-image: url(/assets/images/profile.png)">
+                    <span class="hidden">{{site.author}}'s Picture</span></a>
+                </figure>
+                <section class="author">
+                    <!-- Author Name -->
+                    <h4> {{ site.author }} </h4>
+                    <!-- Author Bio -->
+                    <p> 
+                        Here goes the author description. You might want to place some links too in here
+                    </p>
+                </section>                
+            {% endif %}
+
+            <!-- Share links section -->
+            {% include share.html %}
+            
+            <!-- Disqus comments -->
+            {% if page.disqus %}
+                {% include disqus.html %}
+            {% endif %}
+            
         </footer>
 
 
