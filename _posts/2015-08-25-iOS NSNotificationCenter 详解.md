@@ -13,7 +13,7 @@ description: iOS NSNotificationCenter 详解
 
 上一篇：
 
-[iOS开发中的RunLoop与RunTime](/2015-08-20-iOS开发中的RunLoop,RunTime.md)
+[iOS开发中的RunLoop与RunTime](/_posts/2015-08-20-iOS开发中的RunLoop,RunTime.md)
 
 
 > 一个消息通知机制，类似广播。观察者只需要向消息中心注册感兴趣的东西，当有地方发出这个消息的时候，通知中心会发送给注册这个消息的对象。这样也起到了多个对象之间解耦的作用。苹果给我们封装了这个NSNotificationCenter，让我们可以很方便的进行通知的注册和移除。
@@ -66,4 +66,4 @@ extension NSNotification {
 
 下一篇:
 
-[UIViewController的生命周期及iOS程序执行顺序.md](/2015-08-30-UIViewController的生命周期及iOS程序执行顺序.md)
+[UIViewController的生命周期及iOS程序执行顺序.md](/_posts/2015-08-30-UIViewController的生命周期及iOS程序执行顺序.md)
