@@ -8,7 +8,6 @@ tags: [NSThread]
 keywords: NSThread iOS多线程
 description: iOS多线程(一)NSThread
 ---
-##NSThread
 
 > 一个NSThread对象控制执行的线程。当你想在自己的执行线程的Objective-C的方法运行使用这个类。当你需要执行一个漫长的任务线程是特别有用的，但不希望它阻止应用程序的其余部分的执行。特别是，您可以使用线程来避免阻塞应用程序，它处理的用户界面和事件相关的操作的主线。线程也可以用来将一个大的工作分成几个较小的作业，这可能会导致在多核计算机性能的提高。
 
@@ -20,7 +19,7 @@ description: iOS多线程(一)NSThread
     ```
     // 线程通知
     NSDidBecomeSingleThreadedNotification
-    NSThreadWillExitNotification
+    NSThreadWillExitNotification 
     NSWillBecomeMultiThreadedNotification
 
     // 获得当前线程
