@@ -13,7 +13,7 @@ description: iOS开发中的RunLoop,RunTime
 
 上一篇：
 
-[iOS应用程序生命周期(前后台切换，应用的各种状态)详解](https://yyn835314557.github.io/ios/2015-08-15-iOS应用程序生命周期(前后台切换，应用的各种状态)详解.md)
+[iOS应用程序生命周期(前后台切换，应用的各种状态)详解](https://yyn835314557.github.io/ios/2015-08-15-iOS应用程序生命周期(前后台切换，应用的各种状态)详解.html)
 
 
 - OC调用函数机制
@@ -84,4 +84,4 @@ description: iOS开发中的RunLoop,RunTime
 
 下一篇:
 
-[iOS NSNotificationCenter 详解.md](https://yyn835314557.github.io/ios/2015-08-25-iOS NSNotificationCenter 详解.md)
+[iOS NSNotificationCenter 详解.md](https://yyn835314557.github.io/ios/2015-08-25-iOS NSNotificationCenter 详解.html)
