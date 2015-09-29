@@ -1,4 +1,14 @@
-#MVVM介绍(Model-View-ViewModel)
+---
+layout: post
+title: "MVVM介绍(Model-View-ViewModel)"
+date: 2015-09-13
+comments: true
+categories: iOS
+tags: [框架, iOS]
+keywords: 软件框架 iOS
+publish: false
+description: 关于MVVM框架
+---
 
 Swift中使用KVC和KVO的类都必须必须继承自NSObject
 

@@ -14,7 +14,7 @@ description: UIViewController的生命周期及iOS程序执行顺序
 上一篇：
 
 [iOS NSNotificationCenter 详解](https://yyn835314557.github.io/ios/2015/08/25/iOS NSNotificationCenter 详解.html)
-#UIViewController的生命周期及iOS程序执行顺序
+
 
 > A页面 -> B页面:
   - A viewDidLoad
@@ -88,4 +88,4 @@ description: UIViewController的生命周期及iOS程序执行顺序
 
 下一篇:
 
-[iOS App 架构详解](/_posts/2015/09/28/iOS App 架构详解.html)
+[iOS App 架构详解](https://yyn835314557.github.io/ios/2015/09/28/iOS App 架构详解.html)
