@@ -9,7 +9,7 @@ keywords: Swift 构造过程
 description: 2014-09-21-Swift构造过程(Initialization)
 ---
 
-本文主要介绍Swift语言的中class、struct、enum的构造过程，构造器的定义。注意与析构过程进行比较
+本文主要介绍Swift语言的中class、struct、enum的构造过程，构造器的定义。注意比较值类型(默认构造器逐一初始化,属性不需要赋初值)与引用类型(init())的构造的比较
 
 > 构造过程是为了使用某个类、结构体或枚举类型的实例而进行的准备过程。这个过程包含了为实例中的每个存储
 型属性设置初始值和为其执行必要的准备和初始化任务。
@@ -240,11 +240,104 @@ Swift 编译器将执行 4 种有效的安全检查,以确保两段式构造过�
 	
 	- 
 	-
-	-
+	-￼
 	-
 
 *构造器的继承和重写*
 
-跟 Objective-C 中的子类不同,Swift 中的子类不会默认继承父类的构造器。Swift 的这种机制可以防止一个父 类的简单构造器被一个更专业的子类继承,并被错误的用来创建子类的实例。
+跟 Objective-C 中的子类不同,Swift 中的子类不会默认继承父类的构造器。Swift 的这种机制可以防止一个父类的简单构造器被一个更专业的子类继承,并被错误的用来创建子类的实例。父类的构造器仅在确定和安全的情况下被继承。
 
 当你重写一个父类指定构造器时,你需要写 override 修饰符,甚至你的子类构造器继承的是父类的便利构造器。
+ 
+ ```
+ class Vehicle {
+	var numberOfWheels = 0 
+	var description: String {
+		return "\(numberOfWheels) wheel(s)" 
+	}
+ }
+ let vehicle = Vehicle()
+ print("Vehicle: \(vehicle.description)") 
+ // Vehicle: 0 wheel(s)
+
+ class Bicycle: Vehicle { 
+ 	override init() {
+		super.init()
+		numberOfWheels = 2 
+	}
+ }
+
+ let bicycle = Bicycle()
+ print("Bicycle: \(bicycle.description)") // Bicycle: 2 wheel(s)
+ ```
+
+*自动构造器的继承*
+
+子类不会默认继承父类的构造器。但是如果特定条件可以满足,父类构造器是可以被自动继承的。在实践中,这意味着对于许多常见场景你不必重写父类的构造器,并且在尽可能安全的情况下以最小的代价来继承父类的构造器。
+
+假设要为子类中引入的任意新属性提供默认值,请遵守以下2个规则:
+
+	- 规则1: 如果子类没有定义任何指定构造器,它将自动继承所有父类的指定构造器。
+	- 规则2: 如果子类提供了所有父类指定构造器的实现--不管是通过规则1继承过来的,还是通过自定义实现的--它将自动继承所有父类的便利构造器。即使你在子类中添加了更多的便利构造器,这两条规则仍然适用。
+
+*指定构造器和便利构造器*
+
+![三类构造器](/images/initialization/init.png)
+
+ ```Swift
+ // Food 类没有父类,所以 init(name: String) 构造器不需要调用 super.init() 来完成构造。
+ class Food {
+    var name:String
+    init(name:String){
+        self.name = name
+    }
+    convenience init(){
+        self.init(name:"[Unnamed]")
+    }
+ }
+ let namedMeat = Food(name: "Bacon")
+ let mysteryMeat = Food()
+
+ class RecipeIngredient:Food {
+    var quantity:Int
+    init(name: String,quantity:Int) {
+        self.quantity = quantity
+        super.init(name: name)
+    }
+    override convenience init(name: String) {
+        self.init(name:name,quantity:1)
+    }
+ }
+ let oneMysteryItem = RecipeIngredient()
+ let oneBacon = RecipeIngredient(name: "Bacon")
+ let sixEggs = RecipeIngredient(name: "Eggs", quantity: 6)
+
+ class ShoppingListItem: RecipeIngredient {
+    var purchased = false
+    var description: String {
+    var output = "\(quantity) x \(name.lowercaseString)"
+    output += purchased ? " ✔" : " ✘"
+    return output }
+ }
+
+ var breakfastList = [
+    ShoppingListItem(), ShoppingListItem(name: "Bacon"), ShoppingListItem(name: "Eggs", quantity: 6),
+ ]
+ breakfastList[0].name = "Orange juice"; breakfastList[0].purchased = true
+ for item in breakfastList {
+    print(item.description)
+ }
+ // 1 x orange juice ✔ 
+ // 1 x bacon✘
+ // 6 x eggs ✘￼
+ ```
+
+*可失败构造器* class、struct、enum (init?)
+
+如果一个类,结构体或枚举类型的对象,在构造自身的过程中有可能失败,则为其定义一个可失败构造器,是非
+常有必要的。这里所指的“失败”是指,如给构造器传入无效的参数值,或缺少某种所需的外部资源,又或是不
+满足某种必要的条件等。
+
+ > Note:
+   - 可失败构造器的参数名和参数类型,不能与其它非可失败构造器的参数名,及其类型相同。
+   - 构造器都不支持返回值。因为构造器本身的作用,只是为了能确保对象自身能被正确构 建。所以即使你在表明可失败构造器,失败的这种情况下,用到了 return nil 。也不要在表明可失败构造器成功 的这种情况下,使用关键字 return 。
