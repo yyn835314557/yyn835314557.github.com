@@ -11,6 +11,10 @@ description: 关于MVVM框架
 
 Swift中使用KVC和KVO的类都必须必须继承自NSObject
 
+上一篇：
+
+[2015-09-13-iOS中MVVM介绍(Model-View-ViewModel)](https://yyn835314557.github.io/ios/2015/09/13/i2015-09-13-iOS中MVVM介绍(Model-View-ViewModel).html)
+
 ***
 
 ## KVC(key-value coding: 键值编码):
