@@ -17,9 +17,9 @@ description: iOS ReactiveCocoa详解
 
 参考资料:
 
-	(http://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1)
-	(https://github.com/ReactiveCocoa/ReactiveCocoa/blob/master/Documentation/FrameworkOverview.md)
-	(http://www.jianshu.com/p/87ef6720a096#)
+(http://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1)
+(https://github.com/ReactiveCocoa/ReactiveCocoa/blob/master/Documentation/FrameworkOverview.md)
+(http://www.jianshu.com/p/87ef6720a096#)
 
 
 #### 概述:
@@ -37,11 +37,11 @@ description: iOS ReactiveCocoa详解
 
  主要的编程思想
 
- 	- 面向过程: C
- 	- 面向对象: C++ 、Java等大部分语言
- 	- 链式编程思想: 多个操作通过链接成为一句代码。 fun1(para1).fun2(para2).fun2(para3)
- 		- 特点: 返回值为闭包，闭包参数不为空，必须有返回值
- 		- eg: Masonry框架
+ - 面向过程: C
+ - 面向对象: C++ 、Java等大部分语言
+ - 链式编程思想: 多个操作通过链接成为一句代码。 fun1(para1).fun2(para2).fun2(para3)
+	 - 特点: 返回值为闭包，闭包参数不为空，必须有返回值
+	 - eg: Masonry框架
 
 #### RAC核心类介绍
 
