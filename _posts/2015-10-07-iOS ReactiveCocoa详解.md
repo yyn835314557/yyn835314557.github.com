@@ -9,7 +9,7 @@ keywords: RAC
 description: iOS ReactiveCocoa详解
 ---
 
-上文章篇介绍了iOS应用程序的RunTime与RunLoop，本篇主要介绍iOS开发中消息处理机制NSNotification。
+上文章篇介绍了iOS开发中的MVVM开发框架，这篇中我们将主要介绍iOS开发中很流行的RactiveCocoa框架，同时也学习一下 Objective-C 语言。
 
 上一篇：
 
