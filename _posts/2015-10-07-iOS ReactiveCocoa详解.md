@@ -16,6 +16,7 @@ description: iOS ReactiveCocoa详解
 [2015-09-13-iOS中MVVM介绍(Model-View-ViewModel)](https://yyn835314557.github.io/ios/2015/09/13/i2015-09-13-iOS中MVVM介绍(Model-View-ViewModel).html)
 
 参考资料:
+
 	(http://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1)
 	(https://github.com/ReactiveCocoa/ReactiveCocoa/blob/master/Documentation/FrameworkOverview.md)
 	(http://www.jianshu.com/p/87ef6720a096#)
