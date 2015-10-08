@@ -44,6 +44,9 @@ description: iOS ReactiveCocoa详解
 	 - eg: Masonry框架
 
 
+ ![图片一](/images/ReactiveCocoa/RAC1.png)
+
+
 #### RAC系统机制:
 
  You can see that each time you change the text within the text field, the code within the block executes. No target-action, no delegates — just signals and blocks
@@ -59,9 +62,14 @@ description: iOS ReactiveCocoa详解
 
 #### RAC核心类介绍:
 
- 你可以使用种类繁多的operators去操控事件流(eg: filter operator)
+ 你可以使用种类繁多的operators去操控事件流(eg: filter operator,map operator)
 
  each operation on an RACSignal also returns an RACSignal it’s termed a fluent interface. This feature allows you to construct pipelines without the need to reference each step using a local variable.
 
  > 在Objective-C 中，id 类型是一个独特的数据类型。在概念上，类似Java 的Object 类，可以转换为任何数据类型。换句话说，id 类型的变量可以存放任何数据类型的对象。在内部处理上，这种类型被定义为指向对象的指针，实际上是一个指向这种对象的实例变量的指针
 
+ RAC 的宏有两个参数；一个是 the property to set；第二个 property name;
+
+ 下面是来个两个简单的pipelines的视图：
+
+ ![图片二](/images/ReactiveCocoa/RAC2.png)
