@@ -5,11 +5,11 @@ date: 2015-10-07
 comments: true
 categories: iOS
 tags: [ReactiveCocoa]
-keywords: RAC  
+keywords: RAC Framework 
 description: iOS ReactiveCocoa详解
 ---
 
-上文章篇介绍了iOS开发中的MVVM开发框架，这篇中我们将主要介绍iOS开发中很流行的RactiveCocoa框架，同时也学习一下 Objective-C 语言。
+上篇文章介绍了iOS开发中的MVVM开发框架，这篇中我们将主要介绍iOS开发中很流行的RactiveCocoa框架，同时也学习一下 Objective-C 语言。
 
 上一篇：
 
@@ -24,7 +24,7 @@ description: iOS ReactiveCocoa详解
 
 #### 概述:
 
- ReactiveCocoa 是一个重型的 FRP(Functional Reactive Programming 是一种响应变化的编程范式)框架，内容十分丰富，它使用了大量内建的block，这使得其有强大的功能的同时，内部源码也比较复杂
+ ReactiveCocoa 是一个重型的 FRP (Functional Reactive Programming 是一种响应变化的编程范式) 框架，内容十分丰富，它使用了大量内建的block，这使得其有强大的功能的同时，内部源码也比较复杂
 
  RAC统一了对KVO、UI Event、Network request、Async work的处理，因为它们本质上都是值的变化(Values over time)。以用来监测属性的改变，这点跟KVO很像，不过使用了block，而不是 `-observeValueForKeyPath:ofObject:change:context:`;比KVO更加强大的是信号可以被链起来(chain)
 
@@ -43,10 +43,25 @@ description: iOS ReactiveCocoa详解
 	 - 特点: 返回值为闭包，闭包参数不为空，必须有返回值
 	 - eg: Masonry框架
 
-#### RAC核心类介绍
+
+#### RAC系统机制:
 
  You can see that each time you change the text within the text field, the code within the block executes. No target-action, no delegates — just signals and blocks
 
  > As mentioned in the introduction, ReactiveCocoa provides a standard interface for handling the disparate stream of events that occur within your application. In ReactiveCocoa terminology these are called signals, and are represented by the RACSignal class.
 
- RACSignal 传递事件流给 subscribers 。事件的类型可以分为3种: next、error、completed。signal会传递一个任意的数字给下一个事件，在事件error 或者completed之前
+ RACSignal 传递事件流给 subscribers 。事件的类型可以分为3种: next、error、completed。signal在事件error 或者completed之前,会传递一个任意的数字给下一个事件。
+
+ subscribeNext 提供一个block用来支持执行的的每一个 next 事件。
+
+ RAC框架使用 categories 给许多标准UIKit控件添加signal，以便我们能向这些控件的事件添加subscriptions，rac_textSignal就是从这些event中传来的。
+
+
+#### RAC核心类介绍:
+
+ 你可以使用种类繁多的operators去操控事件流(eg: filter operator)
+
+ each operation on an RACSignal also returns an RACSignal it’s termed a fluent interface. This feature allows you to construct pipelines without the need to reference each step using a local variable.
+
+ > 在Objective-C 中，id 类型是一个独特的数据类型。在概念上，类似Java 的Object 类，可以转换为任何数据类型。换句话说，id 类型的变量可以存放任何数据类型的对象。在内部处理上，这种类型被定义为指向对象的指针，实际上是一个指向这种对象的实例变量的指针
+
