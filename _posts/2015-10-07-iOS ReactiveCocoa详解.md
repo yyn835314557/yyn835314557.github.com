@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2015-10-07-iOS ReactiveCocoa详解"
+title: "iOS ReactiveCocoa详解"
 date: 2015-10-07
 comments: true
 categories: iOS
@@ -62,7 +62,7 @@ description: iOS ReactiveCocoa详解
 
 #### RAC核心类介绍:
 
- 你可以使用种类繁多的operators去操控事件流(eg: filter operator,map operator)
+ 你可以使用种类繁多的operators去操控事件流(eg: filter operator, map operator, combineLatest:reduce)
 
  each operation on an RACSignal also returns an RACSignal it’s termed a fluent interface. This feature allows you to construct pipelines without the need to reference each step using a local variable.
 
@@ -70,6 +70,10 @@ description: iOS ReactiveCocoa详解
 
  RAC 的宏有两个参数；一个是 the property to set；第二个 property name;
 
- 下面是来个两个简单的pipelines的视图：
+ 下面是这两个简单的pipelines的视图：
 
  ![图片二](/images/ReactiveCocoa/RAC2.png)
+
+ ReactiveCocoa has a cunning little utility class, RACBlockTrampoline that handles the reduce block’s variable argument list internally. In fact, there are a lot of cunning tricks hidden within the ReactiveCocoa implementation, so it’s well worth pulling back the covers!
+
+ This is one of the key differences you’ll find when you adopt a reactive style — you don’t need to use instance variables to track transient state.
