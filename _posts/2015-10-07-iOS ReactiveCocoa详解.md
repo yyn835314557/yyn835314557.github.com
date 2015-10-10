@@ -77,3 +77,16 @@ description: iOS ReactiveCocoa详解
  ReactiveCocoa has a cunning little utility class, RACBlockTrampoline that handles the reduce block’s variable argument list internally. In fact, there are a lot of cunning tricks hidden within the ReactiveCocoa implementation, so it’s well worth pulling back the covers!
 
  This is one of the key differences you’ll find when you adopt a reactive style — you don’t need to use instance variables to track transient state.
+
+
+#### RACPassthroughSubscriber(订阅者装饰器)
+
+ 订阅者每一次订阅信号是产生一个 Disposable ，并将其与此次订阅关联起来，通过装饰器 RACPassthroughSubscriber 来做到，装饰器的功能如下:
+
+ 	 - 包装真正的订阅者，使自己成为订阅者的替代者
+ 	 - 将真正的订阅者与一个订阅时产生的 Disposable 关联起来。
+ 	 
+
+#### RACDynamicSignal(自定义信号) 的订阅方法 subscribe
+
+ RACDynamicSignal 使用 RACPassthroughSubscriber ,订阅者装饰器直接伪装成真正的订阅器，传给 didSubscribe 这个 block 使用。在这个 block 中，会有一些事件发送给订阅者装饰器，而这个订阅者装饰器则根据 disposable 的状态来来决定是否转发给真正的订阅者。disposable 作为返回值，返回给外部，也就是说能够从外部来取消这个订阅了。
