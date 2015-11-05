@@ -19,7 +19,18 @@ description: iOS多线程(一)NSThread
 - 创建和启动线程
      - 优点：简单快捷
      - 缺点：无法对线程进行更详细的设置
+
+![NSThread](/images/multithread/NSThreadCode.png)
+
 - 主线程相关用法
+    ```
+    // 返回主线程
+    + (NSThread *)mainThread;
+    // 是否为主线程(类方法)
+    + (BOOL)isMainThread; 
+    // 是否为主线程（对象方法）
+    - (BOOL)isMainThread;
+    ```
 - 其他方法
     ```
     // 线程通知
@@ -48,6 +59,7 @@ description: iOS多线程(一)NSThread
 
 //注意：一旦线程停止（死亡）了，就不能再次开启任务
 ```
+ ![Thread state](/images/multithread/state.png)
 
 ## 多线程的安全隐患 
 
